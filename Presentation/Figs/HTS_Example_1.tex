@@ -1,0 +1,14 @@
+\begin{tikzpicture}[level/.style={sibling distance = 6cm/#1},
+every node/.style = {shape=rectangle, rounded corners,
+	draw, align=center,
+	top color=white, bottom color=blue!20}]
+\node {Multinational Company}
+child {node {Country A} 
+	child {node {Prod. line AA}}
+	child {node {Prod. line AB}}
+}
+child {node {Country B} 
+	child {node {Prod. line BA}}
+	child {node {Prod. line BB}}
+};
+\end{tikzpicture}

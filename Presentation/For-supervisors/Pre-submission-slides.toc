@@ -1,0 +1,7 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\beamer@sectionintoc {1}{Project 1: Hierarchical Forecast Reconciliation in Geometric View}{3}{0}{1}
+\beamer@sectionintoc {2}{Project 2: Probabilistic Forecasts for Hierarchical Time Series}{15}{0}{2}
+\beamer@subsectionintoc {2}{1}{Part 1: Definitions and Parametric Approach}{16}{0}{2}
+\beamer@subsectionintoc {2}{2}{Part 2: A non-parametric bootstrap approach for probabilistic forecasts reconciliation}{25}{0}{2}
+\beamer@sectionintoc {3}{Hierarchical forecasts in macroeconomic variables - An application to Australian GDP forecasts}{35}{0}{3}
+\beamer@sectionintoc {4}{Summary and time plan for completion}{54}{0}{4}

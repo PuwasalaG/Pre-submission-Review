@@ -1,0 +1,114 @@
+%\documentclass{monashthesis}                          %% Final version. Double spaced & double-sided.
+\documentclass[a4paper, 11pt]{article} %% Save paper when producing drafts
+%\newcommand\bmmax{8}
+
+%\usepackage{amsmath}
+%\usepackage{graphicx,psfrag,epsf,enumerate}
+%\usepackage{enumerate}
+%\usepackage{natbib}
+%\usepackage{url} % not crucial - just used below for the URL 
+%
+%\usepackage{amssymb, qtree, bm, multirow, textcmds, siunitx,paralist}
+%\usepackage{mathrsfs, float, booktabs,todonotes,amsthm}
+%\usepackage[bb=boondox]{mathalfa}
+%\usepackage{tikz}
+%\usetikzlibrary{arrows,positioning,shapes,fit,calc}
+%\usepackage{amsfonts}
+\usepackage[a4paper,left=2.5cm,right=1.5cm,top=3cm,bottom=2.5cm]{geometry}
+
+\usepackage{bm, amsmath, graphicx,psfrag,epsf,enumerate, paralist, amsfonts, pdfpages}
+\usepackage{amssymb, qtree, multirow, textcmds, siunitx, mathrsfs, float, booktabs, isomath}
+%\usepackage[bb=boondox]{mathalfa}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,shapes,fit,calc}
+\usepackage[pdftex,colorlinks=true]{hyperref}
+\hypersetup{citecolor=blue,linkcolor=blue,urlcolor=blue}
+
+%\DeclareNameAlias{sortname}{last-first}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
+\def\mathbi#1{\textit{ #1}}
+\def\mathB#1{\textbf{ #1}}
+\def\E{\text{E}}
+\def\var{\text{Var}}
+%\renewcommand{\thetable}{\Alph{chapter}\arabic{table}}
+%\mathtoolsset{showonlyrefs=true}
+
+
+\def\PQ{\begin{pmatrix}\bm{P}\\[-0.2cm]\bm{Q}\end{pmatrix}}
+\def\bt{\begin{pmatrix}\tilde{\bm{b}}_{t+h}\\[-0.2cm]\tilde{\bm{t}}_{t+h}\end{pmatrix}}
+
+\newtheorem{definition}{Definition}[section]
+
+\usepackage[natbib=true,backend=bibtex,style=authoryear-comp,dashed=false,maxbibnames=99,firstinits=true,maxcitenames=3,url=true,doi=false,isbn=false]{biblatex}
+
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
+\DeclareFieldFormat[article]{url}{}
+\DeclareFieldFormat[book]{url}{}
+\DeclareFieldFormat[inbook]{url}{}
+\DeclareFieldFormat[incollection]{url}{}
+\DeclareFieldFormat[inproceedings]{url}{}
+\DeclareFieldFormat[inproceedings]{title}{#1}
+\DeclareFieldFormat{shorthandwidth}{#1}
+% No dot before number of articles
+\usepackage{xpatch}
+\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
+% Remove In: for an article.
+\renewbibmacro{in:}{%
+	\ifentrytype{article}{}{%
+		\printtext{\bibstring{in}\intitlepunct}}}
+% Get rid of months in dates (not sure that this works)
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryCitekey{\clearfield{month}}
+
+\DeclareMathVersion{normal2}
+
+
+\title{Probabilistic Forecasts for Hierarchical Time Series}
+
+\bibliography{References_Pre-submission_review}
+
+\begin{document}
+
+\def\spacingset#1{\renewcommand{\baselinestretch}%
+	{#1}\small\normalsize} \spacingset{1}
+
+\pagenumbering{roman}
+
+\includepdf[pages={-}]{Title-page.pdf}
+%{\sf\tighttoc}
+
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%
+%\setcounter{section}{0}
+\section{Introduction}
+\input{Introduction}
+\section{Overview of the Thesis}
+\input{OverviewOfThesis}
+\mathversion{normal2}
+\includepdf[pages={-}]{Hierarchical_forecasting.pdf}
+
+%\newpage
+%
+\section*{Supplementary materials}
+\input{ProbabilisticCoherence}
+\mathversion{normal}
+\newpage
+
+\printbibliography
+% Appendices start here
+
+
+
+
+\end{document}

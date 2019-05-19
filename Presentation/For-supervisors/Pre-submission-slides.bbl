@@ -1,0 +1,551 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\sortlist[entry]{nyt/global/}
+  \entry{BenTaieb2017}{article}{}
+    \name{author}{4}{}{%
+      {{hash=BS}{%
+         family={{Ben Taieb}},
+         familyi={B\bibinitperiod},
+         given={Souhaib},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HR}{%
+         family={Huser},
+         familyi={H\bibinitperiod},
+         given={Raphael},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=HRJ}{%
+         family={Hyndman},
+         familyi={H\bibinitperiod},
+         given={Rob\bibnamedelima J},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=GMG}{%
+         family={Genton},
+         familyi={G\bibinitperiod},
+         given={Marc\bibnamedelima G},
+         giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \keyw{Probabilistic load forecasting,gradient boosting,quantile
+  regression,smart meters}
+    \strng{namehash}{BS+1}
+    \strng{fullhash}{BSHRHRJGMG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{abstract}{%
+    Smart electricity meters are currently deployed in millions of households
+  to collect detailed individual electricity consumption data. Compared to
+  traditional electricity data based on aggregated consumption, smart meter
+  data are much more volatile and less predictable. There is a need within the
+  energy industry for probabilistic forecasts of household electricity
+  consumption to quantify the uncertainty of future electricity demand, in
+  order to undertake appropriate planning of generation and distribution. We
+  propose to estimate an additive quantile regression model for a set of
+  quantiles of the future distribution using a boosting procedure. By doing so,
+  we can benefit from flexible and interpretable models which include an
+  automatic variable selection. We compare our approach with three benchmark
+  methods on both aggregated and disaggregated scales using a smart meter
+  dataset collected from 3639 households in Ireland at 30-minute intervals over
+  a period of 1.5 years. The empirical results demonstrate that our approach
+  based on quantile regression provides better forecast accuracy for
+  disaggregated demand while the traditional approach based on a normality
+  assumption (possibly after an appropriate Box- Cox transformation) is a
+  better approximation for aggregated demand. These results are particularly
+  useful since more energy data will become available at the disaggregated
+  level in the future. I. INTRODUCTION T HE energy sector has been changing
+  dramatically, notably due to the integration of renewable energy sources, in
+  an effort to reduce our dependency on fossil fuels and achieve a better
+  sustainable future. With the growing amount of data from energy systems,
+  there is a need for utilities to quantify the uncertainty in future
+  generation and demand, especially for wind power [1], solar power [2] and
+  electricity demand [3]. In particular, accurate probabilistic forecasts for
+  electricity demand are critical for electric utilities in many operational
+  and planning tasks. Electricity load is often represented as the aggregated
+  load across many households (e.g. at the city level). There is also a rich
+  literature on forecasting the average aggregated electricity load; i.e. in
+  forecasting the mean of the future demand distribution. These forecasts are
+  often conditional on a number of predictor variables such as calendar and
+  temperature variables. Many models have been considered S. BenTaieb is with
+  the King Abdullah University of Science and Tech- nology (KAUST), Thuwal,
+  Saudi Arabia, and the Monash Business School, Clayton, VIC 3800, Australia
+  (e-mails: souhaib.bentaieb@monash.edu). R. Huser is with the King Abdullah
+  University of Science and Technology (KAUST), Thuwal, Saudi Arabia (e-mail:
+  raphael.huser@kaust.edu.sa). R. J. Hyndman is with the Monash Business
+  School, Clayton, VIC 3800, Australia (e-mail: rob.hyndman@monash.edu). M. G.
+  Genton is with the King Abdullah University of Science and Tech- nology
+  (KAUST), Thuwal, Saudi Arabia (e-mail: marc.genton@kaust.edu.sa). for%
+    }
+    \verb{doi}
+    \verb 10.1109/TSG.2016.2527820
+    \endverb
+    \field{issn}{19493053}
+    \field{number}{5}
+    \field{pages}{2448\bibrangedash 2455}
+    \field{title}{{Forecasting uncertainty in electricity smart meter data by
+  boosting additive quantile regression}}
+    \field{volume}{7}
+    \verb{file}
+    \verb :C$\backslash$:/Users/Puwasala/AppData/Local/Mendeley Ltd./Mendeley D
+    \verb esktop/Downloaded/Ben Taieb et al. - 2016 - Forecasting uncertainty i
+    \verb n electricity smart meter data by boosting additive quantile regressi
+    \verb on.pdf:pdf
+    \endverb
+    \field{journaltitle}{IEEE Transactions on Smart Grid}
+    \field{year}{2017}
+  \endentry
+
+  \entry{capistran2010multi}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CC}{%
+         family={Capistr{\'a}n},
+         familyi={C\bibinitperiod},
+         given={Carlos},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=CC}{%
+         family={Constandse},
+         familyi={C\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=RFM}{%
+         family={Ramos-Francia},
+         familyi={R\bibinitperiod-F\bibinitperiod},
+         given={Manuel},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{CCCCRFM1}
+    \strng{fullhash}{CCCCRFM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2010}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{3}
+    \field{pages}{666\bibrangedash 677}
+    \field{title}{Multi-horizon inflation forecasts using disaggregated data}
+    \field{volume}{27}
+    \field{journaltitle}{Economic Modelling}
+    \field{year}{2010}
+  \endentry
+
+  \entry{Gneiting2007}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GT}{%
+         family={Gneiting},
+         familyi={G\bibinitperiod},
+         given={Tilmann},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=RAE}{%
+         family={Raftery},
+         familyi={R\bibinitperiod},
+         given={Adrian\bibnamedelima E},
+         giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \keyw{bayes factor,bregman divergence,brier score,coherent,continuous
+  ranked probability score,cross-validation,distribution,entropy,kernel
+  score,loss function,minimum contrast estimation,negative definite
+  function,prediction interval,predictive,quantile forecast,scoring rule,skill
+  score,strictly proper,utility function}
+    \strng{namehash}{GTRAE1}
+    \strng{fullhash}{GTRAE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{abstract}{%
+    Scoring rules assess the quality of probabilistic forecasts, by assigning a
+  numerical score based on the predictive distribution and on the event or
+  value that materializes. A scoring rule is proper if the forecaster maximizes
+  the expected score for an observation drawn from the distribution F if he or
+  she issues the probabilistic forecast F, rather than G?=F. It is strictly
+  proper if the maximum is unique. In prediction problems, proper scoring rules
+  encourage the forecaster tomake careful assessments and to be honest. In
+  estimation problems, strictly proper scoring rules provide attractive loss
+  and utility functions that can be tailored to the problem at hand. This
+  article reviews and develops the theory of proper scoring rules on general
+  probability spaces, and proposes and discusses examples thereof. Proper
+  scoring rules derive from convex functions and relate to information
+  measures, entropy functions, and Bregman divergences. In the case of
+  categorical variables, we prove a rigorous version of the Savage
+  representation. Examples of scoring rules for probabilistic forecasts in the
+  form of predictive densities include the logarithmic, spherical,
+  pseudospherical, and quadratic scores. The continuous ranked probability
+  score applies to probabilistic forecasts that take the form of predictive
+  cumulative distribution functions. It generalizes the absolute error and
+  forms a special case of a new and very general type of score, the energy
+  score. Like many other scoring rules, the energy score admits a kernel
+  representation in terms of negative definite functions, with links to
+  inequalities of Hoeffding type, in both univariate and multivariate settings.
+  Proper scoring rules for quantile and interval forecasts are also
+  discussed.We relate proper scoring rules to Bayes factors and to
+  cross-validation, and propose a novel form of cross-validation known as
+  random-fold cross-validation. A case study on probabilistic weather forecasts
+  in the North American Pacific Northwest illustrates the importance of
+  propriety. We note optimum score approaches to point and quantile estimation,
+  and propose the intuitively appealing interval score as a utility function in
+  interval estimation that addresses width as well as coverage.%
+    }
+    \verb{doi}
+    \verb 10.1198/016214506000001437
+    \endverb
+    \field{isbn}{0162-1459}
+    \field{issn}{0162-1459}
+    \field{number}{477}
+    \field{pages}{359\bibrangedash 378}
+    \field{title}{{Strictly Proper Scoring Rules, Prediction, and Estimation}}
+    \field{volume}{102}
+    \verb{file}
+    \verb :C$\backslash$:/Users/Puwasala/AppData/Local/Mendeley Ltd./Mendeley D
+    \verb esktop/Downloaded/Gneiting, Raftery - 2007 - Strictly Proper Scoring
+    \verb Rules, Prediction, and Estimation.pdf:pdf
+    \endverb
+    \field{journaltitle}{Journal of the American Statistical Association}
+    \field{year}{2007}
+  \endentry
+
+  \entry{Gneiting2008}{article}{}
+    \name{author}{5}{}{%
+      {{hash=GT}{%
+         family={Gneiting},
+         familyi={G\bibinitperiod},
+         given={Tilmann},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SLI}{%
+         family={Stanberry},
+         familyi={S\bibinitperiod},
+         given={Larissa\bibnamedelima I.},
+         giveni={L\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+      {{hash=GEP}{%
+         family={Grimit},
+         familyi={G\bibinitperiod},
+         given={Eric\bibnamedelima P.},
+         giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=HL}{%
+         family={Held},
+         familyi={H\bibinitperiod},
+         given={Leonhard},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=JNA}{%
+         family={Johnson},
+         familyi={J\bibinitperiod},
+         given={Nicholas\bibnamedelima A.},
+         giveni={N\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \keyw{Calibration,Density forecast,Ensemble
+  postprocessing,Exchangeability,Forecast verification,Probability integral
+  transform,Proper scoring rule,Rank histogram,Sharpness}
+    \strng{namehash}{GT+1}
+    \strng{fullhash}{GTSLIGEPHLJNA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{abstract}{%
+    We discuss methods for the evaluation of probabilistic predictions of
+  vector-valued quantities, that can take the form of a discrete forecast
+  ensemble or a density forecast. In particular, we propose a multivariate
+  version of the univariate verification rank histogram or Talagrand diagram
+  that can be used to check the calibration of ensemble forecasts. In the case
+  of density forecasts, Box's density ordinate transform provides an attractive
+  alternative. The multivariate energy score generalizes the continuous ranked
+  probability score. It addresses both calibration and sharpness, and can be
+  used to compare deterministic forecasts, ensemble forecasts and density
+  forecasts, using a single loss function that is proper. An application to the
+  University of Washington mesoscale ensemble points at strengths and
+  deficiencies of probabilistic short-range forecasts of surface wind vectors
+  over the North American Pacific Northwest.%
+    }
+    \verb{doi}
+    \verb 10.1007/s11749-008-0114-x
+    \endverb
+    \field{isbn}{1174900801186}
+    \field{issn}{11330686}
+    \field{number}{2}
+    \field{pages}{211\bibrangedash 235}
+    \field{title}{{Assessing probabilistic forecasts of multivariate
+  quantities, with an application to ensemble predictions of surface winds}}
+    \field{volume}{17}
+    \verb{file}
+    \verb :C$\backslash$:/Users/Puwasala/AppData/Local/Mendeley Ltd./Mendeley D
+    \verb esktop/Downloaded/Gneiting et al. - 2008 - Assessing probabilistic fo
+    \verb recasts of multivariate quantities, with an application to ensemble p
+    \verb redictions of su.pdf:pdf
+    \endverb
+    \field{journaltitle}{Test}
+    \field{year}{2008}
+  \endentry
+
+  \entry{Hyndman2011}{article}{}
+    \name{author}{4}{}{%
+      {{hash=HRJ}{%
+         family={Hyndman},
+         familyi={H\bibinitperiod},
+         given={Rob\bibnamedelima J.},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=ARA}{%
+         family={Ahmed},
+         familyi={A\bibinitperiod},
+         given={Roman\bibnamedelima A.},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=AG}{%
+         family={Athanasopoulos},
+         familyi={A\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=SHL}{%
+         family={Shang},
+         familyi={S\bibinitperiod},
+         given={Han\bibnamedelima Lin},
+         giveni={H\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier B.V.}%
+    }
+    \keyw{Bottom-up forecasting,Combining forecasts,GLS regression,Hierarchical
+  forecasting,Reconciling forecasts,Top-down forecasting}
+    \strng{namehash}{HRJ+1}
+    \strng{fullhash}{HRJARAAGSHL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2011}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{abstract}{%
+    In many applications, there are multiple time series that are
+  hierarchically organized and can be aggregated at several different levels in
+  groups based on products, geography or some other features. We call these
+  "hierarchical time series". They are commonly forecast using either a
+  "bottom-up" or a "top-down" method. In this paper we propose a new approach
+  to hierarchical forecasting which provides optimal forecasts that are better
+  than forecasts produced by either a top-down or a bottom-up approach. Our
+  method is based on independently forecasting all series at all levels of the
+  hierarchy and then using a regression model to optimally combine and
+  reconcile these forecasts. The resulting revised forecasts add up
+  appropriately across the hierarchy, are unbiased and have minimum variance
+  amongst all combination forecasts under some simple assumptions. We show in a
+  simulation study that our method performs well compared to the top-down
+  approach and the bottom-up method. We demonstrate our proposed method by
+  forecasting Australian tourism demand where the data are disaggregated by
+  purpose of travel and geographical region. {\textcopyright} 2011 Elsevier
+  B.V. All rights reserved.%
+    }
+    \verb{doi}
+    \verb 10.1016/j.csda.2011.03.006
+    \endverb
+    \field{isbn}{0167-9473}
+    \field{issn}{01679473}
+    \field{number}{9}
+    \field{pages}{2579\bibrangedash 2589}
+    \field{title}{{Optimal combination forecasts for hierarchical time series}}
+    \field{volume}{55}
+    \verb{file}
+    \verb :C$\backslash$:/Users/Puwasala/AppData/Local/Mendeley Ltd./Mendeley D
+    \verb esktop/Downloaded/Hyndman et al. - 2011 - Optimal combination forecas
+    \verb ts for hierarchical time series.pdf:pdf
+    \endverb
+    \field{journaltitle}{Computational Statistics and Data Analysis}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Jeon2018}{unpublished}{}
+    \name{author}{3}{}{%
+      {{hash=JJ}{%
+         family={Jeon},
+         familyi={J\bibinitperiod},
+         given={Jooyoung},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Panagiotelis},
+         familyi={P\bibinitperiod},
+         given={Anastasios},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PF}{%
+         family={Petropoulos},
+         familyi={P\bibinitperiod},
+         given={Fotios},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \keyw{aggregation,cross-validation,forecasting,renewable energy,temporal
+  hierarchies}
+    \strng{namehash}{JJPAPF1}
+    \strng{fullhash}{JJPAPF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \verb{eprint}
+    \verb arXiv:1808.02635v1
+    \endverb
+    \field{title}{{Reconciliation of probabilistic forecasts with an
+  application to wind power}}
+    \verb{file}
+    \verb :C$\backslash$:/Users/Puwasala/Desktop/Reconciliation of probabilisti
+    \verb c forecasts with an application to wind power.pdf:pdf
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{year}{2018}
+  \endentry
+
+  \entry{SCHEUERER2015}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SM}{%
+         family={Scheuerer},
+         familyi={S\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HTM}{%
+         family={Hamill},
+         familyi={H\bibinitperiod},
+         given={Thomas\bibnamedelima M.},
+         giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SMHTM1}
+    \strng{fullhash}{SMHTM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1175/MWR-D-14-00269.1
+    \endverb
+    \field{number}{4}
+    \field{pages}{1321\bibrangedash 1334}
+    \field{title}{{Variogram-Based Proper Scoring Rules for Probabilistic
+  Forecasts of Multivariate Quantities *}}
+    \field{volume}{143}
+    \verb{file}
+    \verb :C$\backslash$:/Users/Puwasala/AppData/Local/Mendeley Ltd./Mendeley D
+    \verb esktop/Downloaded/Scheuerer, Hamill - 2015 - Variogram-Based Proper S
+    \verb coring Rules for Probabilistic Forecasts of Multivariate Quantities.p
+    \verb df:pdf
+    \endverb
+    \field{journaltitle}{Monthly Weather Review}
+    \field{year}{2015}
+  \endentry
+
+  \entry{weiss2018essays}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=WC}{%
+         family={Weiss},
+         familyi={W\bibinitperiod},
+         given={Christoph},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WC1}
+    \strng{fullhash}{WC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Essays in Hierarchical Time Series Forecasting and Forecast
+  Combination}
+    \list{institution}{1}{%
+      {University of Cambridge}%
+    }
+    \field{type}{phdthesis}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Wickramasuriya2018}{article}{}
+    \name{author}{3}{}{%
+      {{hash=WSL}{%
+         family={Wickramasuriya},
+         familyi={W\bibinitperiod},
+         given={Shanika\bibnamedelima L},
+         giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=AG}{%
+         family={Athanasopoulos},
+         familyi={A\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=HRJ}{%
+         family={Hyndman},
+         familyi={H\bibinitperiod},
+         given={Rob\bibnamedelima J},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor {\&} Francis}%
+    }
+    \keyw{Aggregation,Australian tourism,Coherent forecasts,contemporaneous
+  error correlation,forecast combinations,spatial correlations}
+    \strng{namehash}{WSLAGHRJ1}
+    \strng{fullhash}{WSLAGHRJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \verb{doi}
+    \verb 10.1080/01621459.2018.1448825
+    \endverb
+    \field{issn}{0162-1459}
+    \field{pages}{1\bibrangedash 45}
+    \field{title}{{Optimal forecast reconciliation for hierarchical and grouped
+  time series through trace minimization}}
+    \verb{url}
+    \verb https://www.tandfonline.com/doi/full/10.1080/01621459.2018.1448825
+    \endverb
+    \field{volume}{1459}
+    \verb{file}
+    \verb :C$\backslash$:/Users/Puwasala/AppData/Local/Mendeley Ltd./Mendeley D
+    \verb esktop/Downloaded/Wickramasuriya, Athanasopoulos, Hyndman - 2018 - Op
+    \verb timal forecast reconciliation for hierarchical and grouped time serie
+    \verb s through trace.pdf:pdf
+    \endverb
+    \field{journaltitle}{Journal of the American Statistical Association}
+    \field{year}{2018}
+  \endentry
+\endsortlist
+\endinput

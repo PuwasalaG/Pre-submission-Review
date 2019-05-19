@@ -1,0 +1,21 @@
+\BOOKMARK [0][-]{section*.1}{Hierarchical forecasting on macroeconomic variables - An application to Australian GDP forecasts}{}% 1
+\BOOKMARK [0][-]{section*.1}{George Athanasopoulos, Puwasala Gamakumara, Anastasios Panagiotelis, Rob J Hyndman and Mohamed Affan}{}% 2
+\BOOKMARK [1][-]{section.0.1}{Introduction}{section*.1}% 3
+\BOOKMARK [1][-]{section.0.2}{Hierarchical time series}{section*.1}% 4
+\BOOKMARK [1][-]{section.0.3}{Point forecasting}{section*.1}% 5
+\BOOKMARK [2][-]{subsection.0.3.1}{Single-level approaches}{section.0.3}% 6
+\BOOKMARK [2][-]{subsection.0.3.2}{Point forecast reconciliation}{section.0.3}% 7
+\BOOKMARK [1][-]{section.0.4}{Hierarchical probabilistic forecasting}{section*.1}% 8
+\BOOKMARK [2][-]{subsection.0.4.1}{Probabilistic forecast reconciliation in the Gaussian framework}{section.0.4}% 9
+\BOOKMARK [2][-]{subsection.0.4.2}{Probabilistic forecast reconciliation in the non-parametric framework}{section.0.4}% 10
+\BOOKMARK [1][-]{section.0.5}{Australian GDP}{section*.1}% 11
+\BOOKMARK [1][-]{section.0.6}{Empirical application methodology}{section*.1}% 12
+\BOOKMARK [2][-]{subsection.0.6.1}{Models}{section.0.6}% 13
+\BOOKMARK [2][-]{subsection.0.6.2}{Evaluation}{section.0.6}% 14
+\BOOKMARK [1][-]{section.0.7}{Results}{section*.1}% 15
+\BOOKMARK [2][-]{subsection.0.7.1}{Base forecasts}{section.0.7}% 16
+\BOOKMARK [2][-]{subsection.0.7.2}{Point Forecast Reconciliation}{section.0.7}% 17
+\BOOKMARK [2][-]{subsection.0.7.3}{Probabilistic Forecast Reconciliation}{section.0.7}% 18
+\BOOKMARK [1][-]{section.0.8}{Conclusions}{section*.1}% 19
+\BOOKMARK [1][-]{section*.4}{References}{section*.1}% 20
+\BOOKMARK [1][-]{section*.5}{Appendix 1}{section*.1}% 21

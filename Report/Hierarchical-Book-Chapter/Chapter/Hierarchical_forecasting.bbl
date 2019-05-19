@@ -1,0 +1,292 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Amemiya \harvardand\ Wu}{1972}{AmeWu1972}
+Amemiya, T. \harvardand\ Wu, R.~Y.  \harvardyearleft 1972\harvardyearright ,
+  `The effect of aggregation on prediction in the autoregressive model', {\em
+  Journal of the American Statistical Association} {\bf 67}(339),~628--632.
+
+\harvarditem[Andrawis et~al.]{Andrawis, Atiya \harvardand\
+  El-Shishiny}{2011}{AndEtAl2011}
+Andrawis, R.~R., Atiya, A.~F. \harvardand\ El-Shishiny, H.  \harvardyearleft
+  2011\harvardyearright , `{Combination of long term and short term forecasts,
+  with application to tourism demand forecasting}', {\em International Journal
+  of Forecasting} {\bf 27}(3),~870--886.
+
+\harvarditem[Athanasopoulos et~al.]{Athanasopoulos, Ahmed \harvardand\
+  Hyndman}{2009}{AthEtAl2009}
+Athanasopoulos, G., Ahmed, R.~A. \harvardand\ Hyndman, R.~J.  \harvardyearleft
+  2009\harvardyearright , `Hierarchical forecasts for {Australian} domestic
+  tourism', {\em International Journal of Forecasting} {\bf 25}(1),~146--166.
+
+\harvarditem[Athanasopoulos et~al.]{Athanasopoulos, Hyndman, Kourentzes
+  \harvardand\ Petropoulos}{2017}{AthEtAl2017}
+Athanasopoulos, G., Hyndman, R.~J., Kourentzes, N. \harvardand\ Petropoulos, F.
+   \harvardyearleft 2017\harvardyearright , `Forecasting with temporal
+  hierarchies', {\em European Journal of Operational Research} {\bf
+  262},~60--74.
+
+\harvarditem[Athanasopoulos et~al.]{Athanasopoulos, Steel \harvardand\
+  Weatherburn}{2019}{AthEtAl2019}
+Athanasopoulos, G., Steel, T. \harvardand\ Weatherburn, D.  \harvardyearleft
+  2019\harvardyearright , Forecasting prison numbers: A grouped time series
+  approach.
+
+\harvarditem{{Australian Bureau of Statistics}}{2015}{ABS2015}
+{Australian Bureau of Statistics}  \harvardyearleft 2015\harvardyearright ,
+  `Australian system of national accounts: Concepts, sources and methods'.
+\newblock Cat 5216.0.
+
+\harvarditem{{Australian Bureau of Statistics}}{2018}{ABS2018}
+{Australian Bureau of Statistics}  \harvardyearleft 2018\harvardyearright ,
+  `Australian national accounts: National income, expenditure and product'.
+\newblock Cat 5206.0.
+
+\harvarditem[Billio et~al.]{Billio, Casarin, Ravazzolo \harvardand\
+  Van~Dijk}{2013}{BilEtAl2013}
+Billio, M., Casarin, R., Ravazzolo, F. \harvardand\ Van~Dijk, H.~K.
+  \harvardyearleft 2013\harvardyearright , `Time-varying combinations of
+  predictive densities using nonlinear filtering', {\em Journal of
+  Econometrics} {\bf 177}(2),~213--232.
+
+\harvarditem{Brewer}{1973}{Bre1973}
+Brewer, K.  \harvardyearleft 1973\harvardyearright , `Some consequences of
+  temporal aggregation and systematic sampling for {ARMA} and {ARMAX} models',
+  {\em Journal of Econometrics} {\bf 1}(2),~133--154.
+
+\harvarditem[Capistr{\'a}n et~al.]{Capistr{\'a}n, Constandse \harvardand\
+  Ramos-Francia}{2010}{capistran2010multi}
+Capistr{\'a}n, C., Constandse, C. \harvardand\ Ramos-Francia, M.
+  \harvardyearleft 2010\harvardyearright , `Multi-horizon inflation forecasts
+  using disaggregated data', {\em Economic Modelling} {\bf 27}(3),~666--677.
+
+\harvarditem[Carriero et~al.]{Carriero, Clark \harvardand\
+  Marcellino}{2015}{CarEtAl2015}
+Carriero, A., Clark, T.~E. \harvardand\ Marcellino, M.  \harvardyearleft
+  2015\harvardyearright , `Realtime nowcasting with a {Bayesian} mixed
+  frequency model with stochastic volatility', {\em Journal of the Royal
+  Statistical Society: Series A (Statistics in Society)} {\bf
+  178}(4),~837--862.
+
+\harvarditem{Clark \harvardand\ Ravazzolo}{2015}{ClaRav2015}
+Clark, T.~E. \harvardand\ Ravazzolo, F.  \harvardyearleft 2015\harvardyearright
+  , `Macroeconomic forecasting performance under alternative specifications of
+  time-varying volatility', {\em Journal of Applied Econometrics} {\bf
+  30}(4),~551--575.
+
+\harvarditem[Cogley et~al.]{Cogley, Morozov \harvardand\
+  Sargent}{2005}{CogEtAl2005}
+Cogley, T., Morozov, S. \harvardand\ Sargent, T.~J.  \harvardyearleft
+  2005\harvardyearright , `Bayesian fan charts for {UK} inflation: Forecasting
+  and sources of uncertainty in an evolving monetary system', {\em Journal of
+  Economic Dynamics and Control} {\bf 29}(11),~1893--1925.
+
+\harvarditem[Dunn et~al.]{Dunn, Williams \harvardand\ Dechaine}{1976}{dunn1976}
+Dunn, D.~M., Williams, W.~H. \harvardand\ Dechaine, T.~L.  \harvardyearleft
+  1976\harvardyearright , `Aggregate versus subaggregate models in local area
+  forecasting', {\em Journal of American Statistical Association} {\bf
+  71}(353),~68--71.
+
+\harvarditem{Gamakumara}{2019}{gamakumara2019phd}
+Gamakumara, P.  \harvardyearleft 2019\harvardyearright , Probabilistic
+  Forecasts in Hierarchical Time Series, PhD thesis, Monash University.
+
+\harvarditem[Gamakumara et~al.]{Gamakumara, Panagiotelis, Athanasopoulos
+  \harvardand\ Hyndman}{2018}{GamEtAl2018}
+Gamakumara, P., Panagiotelis, A., Athanasopoulos, G. \harvardand\ Hyndman,
+  R.~J.  \harvardyearleft 2018\harvardyearright , Probabilisitic forecasts in
+  hierarchical time series, Working paper 11/18, Monash University Econometrics
+  \& Business Statistics.
+
+\harvarditem{Geweke \harvardand\ Amisano}{2010}{GewAmi2010}
+Geweke, J. \harvardand\ Amisano, G.  \harvardyearleft 2010\harvardyearright ,
+  `Comparing and evaluating {Bayesian} predictive distributions of asset
+  returns', {\em International Journal of Forecasting} {\bf 26}(2),~216--230.
+
+\harvarditem{Gneiting}{2005}{GneRaf2005}
+Gneiting, T.  \harvardyearleft 2005\harvardyearright , `Weather forecasting
+  with ensemble methods', {\em Science} {\bf 310}(5746),~248--249.
+
+\harvarditem{Gneiting \harvardand\ Katzfuss}{2014}{Gneiting2014}
+Gneiting, T. \harvardand\ Katzfuss, M.  \harvardyearleft 2014\harvardyearright
+  , `Probabilistic forecasting', {\em Annual Review of Statistics and Its
+  Application} {\bf 1},~125--151.
+
+\harvarditem[Gneiting et~al.]{Gneiting, Stanberry, Grimit, Held \harvardand\
+  Johnson}{2008}{Gneiting2008}
+Gneiting, T., Stanberry, L.~I., Grimit, E.~P., Held, L. \harvardand\ Johnson,
+  N.~A.  \harvardyearleft 2008\harvardyearright , `{Assessing probabilistic
+  forecasts of multivariate quantities, with an application to ensemble
+  predictions of surface winds}', {\em Test} {\bf 17}(2),~211--235.
+
+\harvarditem{Gross \harvardand\ Sohl}{1990}{gross1990}
+Gross, C.~W. \harvardand\ Sohl, J.~E.  \harvardyearleft 1990\harvardyearright ,
+  `Disaggregation methods to expedite product line forecasting', {\em Journal
+  of Forecasting} {\bf 9}(3),~233--254.
+
+\harvarditem{Hotta}{1993}{Hot1993}
+Hotta, L.~K.  \harvardyearleft 1993\harvardyearright , `The effect of additive
+  outliers on the estimates from aggregated and disaggregated {ARIMA} models',
+  {\em International Journal of Forecasting} {\bf 9}(1),~85--93.
+
+\harvarditem{Hotta \harvardand\ {Cardoso Neto}}{1993}{HotCar1993}
+Hotta, L.~K. \harvardand\ {Cardoso Neto}, J.  \harvardyearleft
+  1993\harvardyearright , `{The effect of aggregation on prediction in
+  autoregressive integrated moving-average models}', {\em Journal of Time
+  Series Analysis} {\bf 14}(3),~261--269.
+
+\harvarditem[Hyndman et~al.]{Hyndman, Ahmed, Athanasopoulos \harvardand\
+  Shang}{2011}{HynEtAl2011}
+Hyndman, R.~J., Ahmed, R.~A., Athanasopoulos, G. \harvardand\ Shang, H.~L.
+  \harvardyearleft 2011\harvardyearright , `Optimal combination forecasts for
+  hierarchical time series', {\em Computational Statistics and Data Analysis}
+  {\bf 55}(9),~2579--2589.
+
+\harvarditem{Hyndman \harvardand\ Athanasopoulos}{2018}{HynAth2018}
+Hyndman, R.~J. \harvardand\ Athanasopoulos, G.  \harvardyearleft
+  2018\harvardyearright , {\em Forecasting: Principles and Practice}, OTexts.
+\newline\harvardurl{https://OTexts.com/fpp2}
+
+\harvarditem[Hyndman et~al.]{Hyndman, Athanasopoulos, Bergmeir, Caceres, Chhay,
+  O'Hara-Wild, Petropoulos, Razbash, Wang, Yasmeen, {R Core Team}, Ihaka, Reid,
+  Shaub, Tang \harvardand\ Zhou}{2019}{Rforecast}
+Hyndman, R.~J., Athanasopoulos, G., Bergmeir, C., Caceres, G., Chhay, L.,
+  O'Hara-Wild, M., Petropoulos, F., Razbash, S., Wang, E., Yasmeen, F., {R Core
+  Team}, Ihaka, R., Reid, D., Shaub, D., Tang, Y. \harvardand\ Zhou, Z.
+  \harvardyearleft 2019\harvardyearright , {\em forecast: Forecasting Functions
+  for Time Series and Linear Models}.
+\newblock Version 8.5.
+\newline\harvardurl{https://CRAN.R-project.org/package=forecast}
+
+\harvarditem{Hyndman \harvardand\ Khandakar}{2008}{HK08}
+Hyndman, R.~J. \harvardand\ Khandakar, Y.  \harvardyearleft
+  2008\harvardyearright , `Automatic time series forecasting: the forecast
+  package for {R}', {\em Journal of Statistical Software} {\bf 26}(3),~1--22.
+
+\harvarditem[Hyndman et~al.]{Hyndman, Koehler, Ord \harvardand\
+  Snyder}{2008}{expsmooth08}
+Hyndman, R.~J., Koehler, A.~B., Ord, J.~K. \harvardand\ Snyder, R.~D.
+  \harvardyearleft 2008\harvardyearright , {\em Forecasting with exponential
+  smoothing: the state space approach}, Springer-Verlag, Berlin.
+
+\harvarditem[Hyndman et~al.]{Hyndman, Lee \harvardand\ Wang}{2016}{Hyndman2016}
+Hyndman, R.~J., Lee, A.~J. \harvardand\ Wang, E.  \harvardyearleft
+  2016\harvardyearright , `Fast computation of reconciled forecasts for
+  hierarchical and grouped time series', {\em Computational Statistics and Data
+  Analysis} {\bf 97},~16--32.
+
+\harvarditem[Kourentzes et~al.]{Kourentzes, Petropoulos \harvardand\
+  Trapero}{2014}{KouEtAl2014}
+Kourentzes, N., Petropoulos, F. \harvardand\ Trapero, J.~R.  \harvardyearleft
+  2014\harvardyearright , `{Improving forecasting by estimating time series
+  structural components across multiple frequencies}', {\em International
+  Journal of Forecasting} {\bf 30}(2),~291--302.
+
+\harvarditem{Manzan \harvardand\ Zerom}{2008}{Manzan2008}
+Manzan, S. \harvardand\ Zerom, D.  \harvardyearleft 2008\harvardyearright , `A
+  bootstrap-based non-parametric forecast density', {\em International Journal
+  of Forecasting} {\bf 24}(3),~535--550.
+
+\harvarditem{Marcellino}{1999}{Mar1999}
+Marcellino, M.  \harvardyearleft 1999\harvardyearright , `Some consequences of
+  temporal aggregation in empirical analysis', {\em Journal of Business {\&}
+  Economic Statistics} {\bf 17}(1),~129--136.
+
+\harvarditem{Nijman \harvardand\ Palm}{1990}{NijPal1990}
+Nijman, T.~E. \harvardand\ Palm, F.~C.  \harvardyearleft 1990\harvardyearright
+  , `Disaggregate sampling in predictive models', {\em Journal of Business {\&}
+  Economic Statistics} {\bf 8}(4),~405--415.
+
+\harvarditem[Panagiotelis et~al.]{Panagiotelis, Athanasopoulos, Hyndman, Jiang
+  \harvardand\ Vahid}{2019}{PanEtAl2019}
+Panagiotelis, A., Athanasopoulos, G., Hyndman, R.~J., Jiang, B. \harvardand\
+  Vahid, F.  \harvardyearleft 2019\harvardyearright , `{Macroeconomic
+  forecasting for Australia using a large number of predictors}', {\em
+  Interantional Journal of Forecasting} (forthcoming).
+
+\harvarditem{Rossana \harvardand\ Seater}{1995}{RosSea1995}
+Rossana, R. \harvardand\ Seater, J.  \harvardyearleft 1995\harvardyearright ,
+  `{Temporal aggregation and economic times series}', {\em Journal of Business
+  {\&} Economic Statistics} {\bf 13}(4),~441--451.
+
+\harvarditem{Sch{\"{a}}fer \harvardand\ Strimmer}{2005}{Schafer2005}
+Sch{\"{a}}fer, J. \harvardand\ Strimmer, K.  \harvardyearleft
+  2005\harvardyearright , `A shrinkage approach to large-scale covariance
+  matrix estimation and implications for functional genomics', {\em Statistical
+  Applications in Genetics and Molecular Biology} {\bf 4}(1),~1--30.
+
+\harvarditem{Shang \harvardand\ Hyndman}{2017}{ShaHyn2017}
+Shang, H.~L. \harvardand\ Hyndman, R.~J.  \harvardyearleft
+  2017\harvardyearright , `Grouped functional time series forecasting: An
+  application to age-specific mortality rates', {\em Journal of Computational
+  and Graphical Statistics} {\bf 26}(2),~330--343.
+
+\harvarditem[Silvestrini et~al.]{Silvestrini, Salto, Moulin \harvardand\
+  Veredas}{2008}{SilEtAl2008}
+Silvestrini, A., Salto, M., Moulin, L. \harvardand\ Veredas, D.
+  \harvardyearleft 2008\harvardyearright , `{Monitoring and forecasting annual
+  public deficit every month: the case of France}', {\em Empirical Economics}
+  {\bf 34}(3),~493--524.
+
+\harvarditem{Smith \harvardand\ Vahey}{2016}{SmiVah2016}
+Smith, M.~S. \harvardand\ Vahey, S.~P.  \harvardyearleft 2016\harvardyearright
+  , `Asymmetric forecast densities for us macroeconomic variables from a
+  gaussian copula model of cross-sectional and serial dependence', {\em Journal
+  of Business \& Economic Statistics} {\bf 34}(3),~416--434.
+
+\harvarditem[Taieb et~al.]{Taieb, Taylor \harvardand\ Hyndman}{2017}{Taieb2017}
+Taieb, S.~B., Taylor, J.~W. \harvardand\ Hyndman, R.~J.  \harvardyearleft
+  2017\harvardyearright , `Hierarchical probabilistic forecasting of
+  electricity demand with smart meter data',  pp.~1--30.
+
+\harvarditem{Tiao}{1972}{Tia1972}
+Tiao, G.~C.  \harvardyearleft 1972\harvardyearright , `Asymptotic behaviour of
+  temporal aggregates of time series', {\em Biometrika} {\bf 59}(3),~525--531.
+
+\harvarditem{Vilar \harvardand\ Vilar}{2013}{Vilar2013}
+Vilar, J.~A. \harvardand\ Vilar, J.~A.  \harvardyearleft 2013\harvardyearright
+  , `Time series clustering based on nonparametric multidimensional forecast
+  densities', {\em Electronic Journal of Statistics} {\bf 7}(1),~1019--1046.
+
+\harvarditem{Villegas \harvardand\ Pedregal}{2018}{VilPed2018}
+Villegas, M.~A. \harvardand\ Pedregal, D.~J.  \harvardyearleft
+  2018\harvardyearright , `Supply chain decision support systems based on a
+  novel hierarchical forecasting approach', {\em Decision Support Systems} {\bf
+  114},~29--36.
+
+\harvarditem{Weiss}{2018}{weiss2018essays}
+Weiss, C.  \harvardyearleft 2018\harvardyearright , Essays in Hierarchical Time
+  Series Forecasting and Forecast Combination, PhD thesis, University of
+  Cambridge.
+
+\harvarditem[Wickramasuriya et~al.]{Wickramasuriya, Athanasopoulos \harvardand\
+  Hyndman}{2018}{WicEtAl2019}
+Wickramasuriya, S.~L., Athanasopoulos, G. \harvardand\ Hyndman, R.~J.
+  \harvardyearleft 2018\harvardyearright , `Optimal forecast reconciliation for
+  hierarchical and grouped time series through trace minimization', {\em
+  Journal of the American Statistical Association} {\bf 1459},~1--45.
+
+\harvarditem[Yagli et~al.]{Yagli, Yang \harvardand\
+  Srinivasan}{2019}{YagEtAl2019}
+Yagli, G.~M., Yang, D. \harvardand\ Srinivasan, D.  \harvardyearleft
+  2019\harvardyearright , `Reconciling solar forecasts: Sequential
+  reconciliation', {\em Solar Energy} {\bf 179},~391--397.
+
+\harvarditem[Yang et~al.]{Yang, Quan, Disfani \harvardand\
+  Liu}{2017}{YanEtAl2017}
+Yang, D., Quan, H., Disfani, V.~R. \harvardand\ Liu, L.  \harvardyearleft
+  2017\harvardyearright , `Reconciling solar forecasts: Geographical
+  hierarchy', {\em Solar Energy} {\bf 146},~276--286.
+
+\harvarditem{Zellner \harvardand\ Montmarquette}{1971}{ZelMon1971}
+Zellner, A. \harvardand\ Montmarquette, C.  \harvardyearleft
+  1971\harvardyearright , `A study of some aspects of temporal aggregation
+  problems in econometric analyses', {\em The Review of Economics and
+  Statistics} {\bf 53}(4),~335--342.
+
+\harvarditem{Zhang \harvardand\ Dong}{2019}{ZhaDon2018}
+Zhang, Y. \harvardand\ Dong, J.  \harvardyearleft 2019\harvardyearright ,
+  `Least squares-based optimal reconciliation method for hierarchical forecasts
+  of wind power generation', {\em IEEE Transactions on Power Systems}
+  (forthcoming).
+
+\end{thebibliography}

@@ -1,0 +1,261 @@
+\section{A non-parametric bootstrap approach for probabilistic forecast reconciliation}\label{sec:non-para}
+
+The second half of the fourth chapter of my thesis introduces a novel non-parametric approach to reconcile hierarchical probabilistic forecasts. In this section, I provide a detailed explanation of this methodology followed by a comprehensive simulation study.
+
+%\begin{figure}[H]
+%	\begin{center}
+%		\leaf{AA} \leaf{AB} 
+%		\branch{2}{A}
+%		\leaf{BA} \leaf{BB}
+%		\branch{2}{B}
+%		\branch{2}{Tot}
+%		\qobitree
+%	\end{center}
+%	\caption{Two level hierarchical diagram}\label{fig:7-D_Hierarchy}
+%\end{figure}
+
+The proposed method initially involves obtaining probabilistic forecasts without considering the aggregation constraints. That is we first get the incoherent probabilistic forecasts. Then we reconcile these to obtain the coherent probabilistic forecasts of the hierarchy. 
+
+\subsection{Incoherent probabilistic forecasts} \label{Subsec:Incoherent_samplePaths}
+We now explain the process of obtaining incoherent sample paths. First we fit appropriate univariate models for each series in the hierarchy based on the training data $\bm{y}_{1:T}$. Then we compute 1-step-ahead training errors as $e_{i,t} = y_{i,t} - \hat{y}_{i,t}$ for $i=1,...,n$ and $t = 1,...,T$ where $\hat{y}_{i,t} = E(y_{i,t}|y_{i,1:t-1})$. These training errors will be then stored in a matrix $\bm{\Gamma}_{(T \times n)} = (\bm{e}_1,...,\bm{e}_T)'$ where $\bm{e}_t = (e_{1,t},...,e_{n,t})$ stored in the same order as $\bm{\hat{y}}_t$ for $t=1,...,T$. Next we block bootstrap a sample of size $H$ from $\bm{\Gamma}$. That is, we randomly select consecutive $H$ rows from $\bm{\Gamma}$ and store in a matrix $\bm{\Gamma}^b_{(H \times n)} = (\bm{e}^b_1,...,\bm{e}^b_H)'$ and repeat this for $b = 1,...,B$.  
+
+Finally, we generate the $h$-step-ahead future paths using the fitted univariate models conditioning on the past observations. We incorporate bootstrapped training errors as the error series for generating future paths. This will implicitly model the contemporaneous correlation structure of the hierarchy. Further, the consecutive (block) training errors will model the serial correlation of each series. To explain this process more explicitly consider the following example. \\
+
+\noindent
+\textbf{Example 1}
+Suppose we have fitted an $ARMA(p,q)$ model for the $i^\text{th}$ series of the hierarchy by using data $y_{i,1}:y_{i,T}$. i.e.
+\begin{align*}
+y_{i,t} &= \alpha_1y_{i,t-1} + \alpha_2y_{i,t-2}+...+\alpha_py_{i,t-p} + \beta_1\epsilon_{i,t-1} + \beta_1\epsilon_{i,t-2}+...+\beta_q\epsilon_{i,t-q} + \epsilon_{i,t},\\
+y_{i,t} &= (\alpha_1 + \alpha_2L+...+\alpha_pL^{p-1})y_{i,t-1} + (\beta_1 + \beta_1L+...+\beta_qL^{q-1})\epsilon_{i,t-1} + \epsilon_{i,t},
+\end{align*}
+where $L$ is the well known lag or backshift operator. Then the $h$-step-ahead $b^\text{th}$ future path for $i^\text{th}$ series can be produced as,
+
+\begin{align*}
+\hat{y}^b_{i,T+h} &= (\hat{\alpha}_1 + \hat{\alpha}_2L +...+ \hat{\alpha}_pL^{p-1})y_{i,T+h-1} + (\hat{\beta}_1 + \hat{\beta}_1L+...+\hat{\beta}_qL^{q-1})\epsilon_{i,T+h-1} + e^b_{i,h}.
+\end{align*}
+where, $e^b_{i,h}$ is the $(h\times i)^\text{th}$ element from $\bm{\Gamma}^b$,
+\begin{equation*}
+y_{i,T+h-1} =
+\begin{cases}
+y_{i,1}:y_{i,T}       & \quad \text{for } T+h-1 \le T\\
+\hat{y}^b_{i,T+1}:\hat{y}^b_{i,T+h-1}  & \quad \text{for } T+h-1 > T
+\end{cases}
+\end{equation*}
+and 
+
+\begin{equation*}
+\epsilon_{i,T+h-1} =
+\begin{cases}
+\epsilon_{i,1}:\epsilon_{i,T}       & \quad \text{for } T+h-1 \le T\\
+e^b_{i,1}:e^b_{i,h-1}  & \quad \text{for } T+h-1 > T
+\end{cases}.
+\end{equation*}
+
+Once we get the $h$-step-ahead sample path for all $n$ series in the hierarchy, we stack them in the same order as $\bm{y}_t$. Repeating the same process for $b = 1,...,B$ we will get a set of bootstrapped $h$-step-ahead future paths of size $B$. We denote this as $\hat{\bm{\Upsilon}}_{T+h} = (\hat{\bm{y}}^1_{T+h},...,\hat{\bm{y}}^B_{T+h})'$ where each row of $\hat{\bm{\Upsilon}}_{T+h}$ represent the $h$-step-ahead sample paths for a single series and columns represent that for corresponding series of the hierarchy.  
+
+We note that $\hat{\bm{\Upsilon}}_{T+h}$ is an empirical sample from the incoherent probability distribution of the hierarchy. However, it is very unlikely that $\hat{\bm{\Upsilon}}_{T+h}$ lies in the coherent subspace. Thus it requires the reconciliation which will be discussed in the next subsection. 
+
+\subsection{Reconciliation of incoherent future paths}
+
+To reconcile the incoherent sample paths, we follow the definition of reconciliation. We project each sample path in $\hat{\bm{\Upsilon}}_{T+h}$ to the coherent subspace via the projection $\bm{SG}$. i.e. for any $\bm{G}$ we can write, 
+\begin{equation} \label{eq:sampleRecon_1}
+\tilde{\bm{y}}_{T+h}^b = \bm{SG}\hat{\bm{y}}_{T+h}^b,
+\end{equation} 
+consequently we have, 
+\begin{equation} \label{eq:sampleRecon_2}
+\tilde{\bm{\Upsilon}}_{T+h} = \bm{SG}\hat{\bm{\Upsilon}}'_{T+h},
+\end{equation} 
+where, each row in $\tilde{\bm{\Upsilon}}'_{T+h}$ represent a single reconciled sample path. Further $\tilde{\bm{\Upsilon}}'_{T+h}$ form an empirical sample from the reconciled forecast distribution of the hierarchy. Any $\bm{G}$ matrix introduced in point forecast reconciliation can also be used for this sample path reconciliation. However, in the following subsection we discuss a method to find $\bm{G}$ that is optimal for probabilistic forecasts. 
+
+\subsection{Optimal reconciliation of incoherent future paths}\label{subsec:Optimal_recon}
+  
+Let us now propose to find an optimal $\bm{G}$ for reconciling future paths by minimising a proper multivariate scoring rule. The respective objective function can be written as, 
+
+\begin{equation} \label{eq:Obj_func_1}
+\operatornamewithlimits{argmin}_{\bm{G}_h} \quad \E_{\bm{Q}}[S(\bm{SG}_h\hat{\bm{\Upsilon}}'_{T+h}, \bm{y}_{T+h})],
+\end{equation}
+where $S$ is a proper scoring rule that follows 
+\begin{equation}\label{eq:prop_score}
+\E_{\bm{Q}}[S(Q,\omega)] \le \E_{\bm{Q}}[S(P,\omega)] ,
+\end{equation}
+where $\E_{Q}[S(P,\omega)]$ is the expected score under the true distribution $Q$ \citep{Gneiting2008, Gneiting2014}.
+
+We use the subscript $h$ on $\bm{G}$ in (\ref{eq:Obj_func_1}) to emphasis distinct $\bm{G}$ matrices for different forecast horizons. The energy score given in Table (\ref{table:scoringrules}) is a proper scoring rule. Approximating the expectations in this equation through sample means we can write,
+
+\begin{table}[!b]
+	\caption{Scoring rules to evaluate multivariate forecast densities. $\breve{\bm{Y}}_{T+h}$ and $\breve{\bm{Y}}^*_{T+h}$ be two independent random vectors from the coherent forecast distribution $\breve{\bm{F}}$ with the density function $\breve{\bm{f}}(\cdot)$ at time $T+h$ and $\bm{y}_{T+h}$ is the vector of realizations. Further $\breve{Y}_{T+h,i}$ and $\breve{Y}_{T+h,j}$ are $i$th and $j$th components of the vector $\breve{\bm{Y}}_{T+h}$. Further the variogram score is given for order $p$ where, $w_{ij}$ are non-negative weights.}\label{table:scoringrules}
+	\centering\small
+%	\setstretch{1.3}
+	\begin{tabular}{@{}lp{8.1cm}l@{}}
+		\toprule
+		\textbf{Scoring rule}  & \textbf{Expression} & \textbf{Reference}           \\
+		\midrule
+		\text{Log score}       &
+		$\text{LS}(\breve{\bm{F}},\bm{y}_{T+h}) = -\log {\breve{\bm{f}}(\bm{y}_{T+h})}$ &
+		\citet{Gneiting2007}  \\\\[-0.2cm]
+		\text{Energy score}    &
+		$\text{eS}(\breve{\bm{Y}}_{T+h},\bm{y}_{T+h}) =
+		\E_{\breve{\bm{F}}}
+		\|\breve{\bm{Y}}_{T+h}-\bm{y}_{T+h}\|^\alpha -$ \par\hfill
+		$\frac{1}{2}\E_{\breve{\bm{F}}}\|\breve{\bm{Y}}_{T+h}-\breve{\bm{Y}}^*_{T+h}\|^\alpha$, \,\, $\alpha \in (0,2]$ &
+		\citet{Gneiting2008}  \\\\[-0.2cm]
+		\text{Variogram score} &
+		$\text{VS}(\breve{\bm{F}}, \bm{y}_{T+h}) =
+		\sum\limits_{i=1}^{n}
+		\sum\limits_{j=1}^{n}
+		w_{ij}\Big(|y_{T+h,i} - y_{T+h,j}|^p -$ \par\hfill
+		$\E_{\breve{\bm{F}}}|\breve{Y}_{T+h,i}-\breve{Y}_{T+h,j}|^p\Big)^2$     &
+		\citet{SCHEUERER2015} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+
+\begin{equation}\label{eq:ES_with_Samplespaths}
+\text{ES}(\bm{SG}_h\hat{\bm{\Upsilon}}'_{T+h}, \bm{y}_{T+h}) \approx \frac{1}{B}\sum_{b=1}^{B}||\bm{SG}_h\hat{\bm{y}}_{T+h,j}^b -\bm{y}_{T+h}||-\frac{1}{2(B-1)}\sum_{b=1}^{B-1}||\bm{SG}_h(\hat{\bm{y}}_{T+h,j}^b -\hat{\bm{y}}_{T+h,j}^{b+1})||.
+\end{equation}
+where $B$ is the empirical sample size from the coherent forecast distribution. Now we can rewrite the objective function in (\ref{eq:Obj_func_1}) as,
+
+\begin{equation}\label{eq:Obj_func_2}
+\operatornamewithlimits{argmin}_{\bm{G}} \frac{1}{N}\sum_{j=1}^{N}\left\{\frac{1}{B}\sum_{b=1}^{B}||\bm{SG}_h\bm{y}_{T+h,j}^b -\bm{y}_{T+h,j}||-\frac{1}{2(B-1)}\sum_{b=1}^{B-1}||\bm{SG}_h(\bm{y}_{T+h,j}^b -\bm{y}_{T+h,j}^{b+1})||\right\}
+\end{equation}
+where, the expectation $E_{\bm{Q}}$ is approximated through the sample mean over $\{\text{ES}(\bm{SG}_h\hat{\bm{\Upsilon}}'_{T+h,1}, \bm{y}_{T+h,1}),...,\\
+\text{ES}(\bm{SG}_h\hat{\bm{\Upsilon}}'_{T+h,N}, \bm{y}_{T+h,N})\}$.   
+Since this is hard to solve analytically, we use a numerical optimization methods to estimate the matrix $\bm{G}_h$ that minimizes above objective function and thus obtain the optimally reconciled future paths. 
+
+\subsubsection{Reparameterisation of G} \label{subsubsec:ReparameterisationG}
+
+We consider different parameterisations when estimating the optimal $\bm{G}$ via above optimisation process. Let,  
+\begin{equation}\label{eq:StructureofG}
+\bm{G}_h = (\bm{S'W}_h\bm{S})^{-1}\bm{S'W}_h.
+\end{equation}
+This structure for $\bm{G}_h$ will ensure $\bm{SG}_h$ is a projection matrix and it projects each sample path onto $\mathfrak{s}$. 
+\begin{itemize}
+	\item[\textbf{Method 1}] Minimising the objective function in (\ref{eq:Obj_func_2}) over $\bm{W}_h$. This solves an unconstrained optimisation problem 
+	\item[\textbf{Method 2}] Consider the cholesky decomposition of $\bm{W}_h$. i.e. let $\bm{W}_h = \bm{R}_h'\bm{R}_h$ where $\bm{R}_h$ is an upper triangular matrix. Thus minimising  (\ref{eq:Obj_func_2}) over $\bm{R}_h$ 
+	\item[\textbf{Method 3}] Similar to Method 2, minimising (\ref{eq:Obj_func_2}) over cholesky decomposition of $\bm{W}_h$ but restricted for scaling. i.e., $\bm{W}_h=\bm{R}_h'\bm{R} \quad \text{s.t} \quad \bm{i'}\bm{W}_h\bm{i}=1$ where $\bm{i}=(1,0,..,0)'$
+	\item[\textbf{Method 4}] Minimising (\ref{eq:Obj_func_2}) over $\bm{G}_h$ such that $\bm{G}_h\bm{S}=\bm{I}$. This constraint will ensure that $\bm{SG}_h$ is a projection onto $\mathfrak{s}$
+	  
+\end{itemize}    
+
+
+
+\subsection{Simulation study}\label{sec:Bootsrap-sim}
+
+We now turn our attention to comparing different reconciliation methods with optimal reconciliation in a simulation setting. 
+
+\subsubsection{Data generating process (DGP)}
+For the data generating process, we consider the hierarchy is given in Figure~\ref{fig:7-D_Hierarchy}, comprising two aggregation levels with four bottom-level series. Each bottom-level series will be generated first, and then summed to obtain the data for the upper-level series. 
+
+Initially, the error series were generated for four bottom-level series. To impose dependency among these series, errors were generated from the Gumbel copula model with beta margins. A two dimensional Gumbel copula is given by, 
+\begin{equation*}
+C_\theta(u_1, u_2) = exp\{-[(-ln(u_1))^\theta + (-ln(u_2))^\theta]^{1/\theta}\}. 
+\end{equation*}
+We generate random variates $\{u_{AA}, u_{AB}\}$ from $C_{\theta=10}(.)$ and $\{u_{BA}, u_{BB}\}$ from $C_{\theta=8}(.)$ for series $\{AA, AB\}$ and $\{BA, BB\}$ respectively. Next we generate the quantiles from beta distributions with shape parameters $\alpha = 1$ and $\beta = 3$ correspond to $\{u_{AA}, u_{AB}, u_{BA}, u_{BB}\}$. Denote these quantiles as $\{\varepsilon_{AA}, \varepsilon_{AB}, \varepsilon_{BA}, \varepsilon_{BB}\}$. 
+%These quantiles are the error series use for generating bottom-level data. 
+
+Then $\{w_{AA,t},w_{AB,t},w_{BA,t},w_{BB,t}\}$ were generated from ARIMA$(p,d,q)$ processes, where $(p,q)$ and $d$ take integers from $\{1,2\}$ and $\{0,1\}$ respectively with equal probabilities. $\{\varepsilon_{AA}, \varepsilon_{AB}, \varepsilon_{BA}, \varepsilon_{BB}\}$ were incorporated as the errors driving these ARIMA processes. The parameters for the AR and MA components are randomly and uniformly generated from $[0.3,0.5]$ and $[0.3,0.7]$ respectively. 
+
+In practice, hierarchical time series likely to have much noisier series at lower levels of aggregation. Following the method proposed by \citet{Wickramasuriya2018}, we replicate this feature in our simulations by generating the bottom-level series $\{y_{AA,t},y_{AB,t},y_{BA,t},y_{BB,t}\}$ as follows: 
+\begin{align*}
+y_{AA,t} &= w_{AA,t} + u_t - 0.5v_t,\\
+y_{AB,t} &= w_{AB,t} - u_t - 0.5v_t,\\
+y_{BA,t} &= w_{BA,t} + u_t + 0.5v_t,\\
+y_{BB,t} &= w_{BB,t} - u_t + 0.5v_t,
+\end{align*}
+where $u_t \sim \mathcal{N}(0,\sigma^2_u)$ and $v_t \sim \mathcal{N}(0,\sigma^2_v)$. The aggregate series in the middle-level are given by:
+\begin{align*}
+y_{A,t} &= w_{AA,t} + w_{AB,t} - v_t,\\
+y_{B,t} &= w_{BA,t} + w_{BB,t} + v_t,
+\end{align*}
+and the total series is given by
+\[
+  y_{Tot,t} = w_{AA,t} + w_{AB,t} + w_{BA,t} + w_{BB,t}.
+\]
+
+
+To ensure the disaggregate series are noisier than the aggregate series, we choose $\sigma^2_u$ and $\sigma^2_v$ such that
+\[
+  \var(\varepsilon_{AA,t} + \varepsilon_{AB,t} + \varepsilon_{BA,t} + \varepsilon_{BB,t})
+  \le \var(\varepsilon_{AA,t}+\varepsilon_{AB,t}-v_t)
+  \le \var(\varepsilon_{AA,t}+u_t-0.5v_t).
+\]
+Similar inequalities hold when $\varepsilon_{AA,t}$ is replaced by $\varepsilon_{AB,t}$, $\varepsilon_{BA,t}$ and $\varepsilon_{BB,t}$ in the third term.
+The variance covariance matrix of $\{\varepsilon_{AA}, \varepsilon_{AB}, \varepsilon_{BA}, \varepsilon_{BB}\}$ is,
+$$
+\bm{\Sigma} = \begin{pmatrix}
+				0.0388 & 0.0385 & 0.0010 & 0.0010\\
+				0.0385 & 0.0390 & 0.0008 & 0.0008 \\
+				0.0010 & 0.0008 & 0.0387 & 0.0377 \\
+				0.0010 & 0.0008 & 0.0377 & 0.0381 \\
+			 \end{pmatrix}.
+$$
+Thus we choose $\sigma^2_u = 10$ and $\sigma^2_v = 7$ to satisfy the above constraints. 
+
+\subsubsection{Simulation set up for optimal reconciliation}
+
+\begin{enumerate}
+    \item Generate time series with $2500$ data points in each, corresponds to the hierarchy in Figure \ref{fig:7-D_Hierarchy} based on the DGP explained. 
+\item Consider a rolling window of $600$ observations. We refer to it the outer rolling window. 
+\begin{enumerate}[i.]
+	\item Inside this outer rolling window consider an inner rolling window of $T=500$ observations. 
+	\item Using inner rolling window, fit univariate ARIMA models to each series in the hierarchy.
+	\item Based on these fitted models, we generate $B=1000$ of $h=3$ step-ahead incoherent future paths incorporating bootstrap errors as described in Sub section \ref{Subsec:Incoherent_samplePaths}. Thus we get $\{\hat{\bm{\Upsilon}}_{T+1,j=1}, \hat{\bm{\Upsilon}}_{T+2,j=1}, \hat{\bm{\Upsilon}}_{T+3,j=1}\}$. 
+	\item Repeat step (iii) for $j=1,...,N$ where $N=100$, by rolling the inner window by one step ahead at a time. 
+	\item Collect $\{\hat{\bm{\Upsilon}}_{T+h,j=1},...,\hat{\bm{\Upsilon}}_{T+h,j=100}\}$ for $h=1,...,3$ into a separate arrays of matrices. 
+	\item For each forecast horizon $h$, estimate the optimal $\bm{G}_h$ that will reconcile $\{\hat{\bm{\Upsilon}}_{T+h,j=1},...,\hat{\bm{\Upsilon}}_{T+h,j=100}\}$ by minimising the average energy score as explained in Subsection \ref{subsec:Optimal_recon}. Also use different reparameterisation of $\bm{G}_h$ as explained in Subsection $\ref{subsubsec:ReparameterisationG}$. Denote this as $\bm{G}^{Opt}_h$. 
+	\item Roll the inner rolling window another one step ahead and repeat step (ii) and (iii). Let these future paths denoted by $\hat{\bm{\Upsilon}}_{T+h}$ for $h=1,2,3$. 
+	\item Compute $\tilde{\bm{\Upsilon}}_{T+h} = \bm{SG}_h\hat{\bm{\Upsilon}}'_{T+h}$ for $h=1,2,3$ using $\bm{G}^{Opt}_h$ as well as using other $\bm{G}$ matrices used in point forecast reconciliation.
+	
+\end{enumerate}
+
+\item Repeat Step 2 for $1000$ times by rolling the outer rolling window one step ahead at each time. Collect $1000$ of these reconciled future paths, $\tilde{\bm{\Upsilon}}_{T+h}$, from different reconciliation methods for $h=1,2,3$ and evaluate the forecasting performances. 
+\end{enumerate}
+
+\subsubsection{Results and discussion}
+%To assess the predictive performance of different forecasting methods, we use scoring rules given in Table \ref{table:scoringrules}. To facilitate comparisons, we report skill scores \citep{Gneiting2007}. For a given forecasting method, evaluated by a particular scoring rule, the skill score 
+%gives the percentage improvement of the preferred forecasting method relative to a reference method. A negative valued skill score indicates that a method is worse than the reference method, whereas any positive value indicates that the method is superior to the reference method.
+Following the simulation process explained before, the probabilistic forecasts from different reconciliation methods were generated. Energy score and variogram scores were calculated to assess the predictive performance of these forecasts. Results are presented in Table \ref{table:Non-paraSimulation}. 
+
+Mann-Whitney test for location comparison claimed that the ES and VS for all reconciled forecasts are significantly lower than that of base/incoherent forecasts. Thus it is evident that all reconciliation methods produce coherent probabilistic forecasts with improved predictive ability than incoherent forecasts. In addition to that, MinT(Shrink) and Optimal methods are having similar prediction accuracy as there is no significant difference between the scores from these reconciliation methods. However, the optimal reconciliation required high computational cost and it will increase for larger hierarchies. Further, it requires sufficient data points for the learning process of $\bm{G}$. Thus we claim to use the MinT $\bm{G}$ for reconciling bootstrapped future paths for two reasons. Firstly it is computationally effective than the optimal method and secondly, it produces accurate probabilistic forecasts at least as good as Optimal method. 
+
+
+\begin{table} 
+	\caption{Energy scores (ES) and variogram scores (VS) for probabilistic forecasts from different reconciliation methods. Bottom row represent the scores for base forecasts which are not coherent. The smaller the scores, the better the forecasts are.} \label{table:Non-paraSimulation}
+	\centering\tabcolsep=0.08cm\small
+	\begin{tabular}{@{}lSSSSSS@{}}
+		\toprule
+		Reconciliation &
+		\multicolumn{2}{c}{h=1} &
+		\multicolumn{2}{c}{h=2} &
+		\multicolumn{2}{c}{h=3} \\
+		\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+		method       & {}{\text{ES}} &  {\text{VS}} & {\text{ES}} &  {\text{VS}} & {\text{ES}} &  {\text{VS}} \\
+		\midrule
+		Optimal(Method-1) & 5.36 & 1.21 & 5.51 & 1.27 & 5.83 & 1.38 \\
+		Optimal(Method-2) & 5.37 & 1.21 & 5.53 & 1.27 & 5.83 & 1.37 \\
+		Optimal(Method-3) & 5.37 & 1.21 & 5.53 & 1.27 & 5.83 & 1.37 \\
+		Optimal(Method-4) & 5.38 & 1.21 & 5.54 & 1.27 & 5.83 & 1.38 \\
+		MinT(Shrink) & 5.33 & 1.19 & 5.50 & 1.26 & 5.77 & 1.34 \\
+		WLS          & 5.43 & 1.23 & 5.60 & 1.30 & 5.89 & 1.40 \\
+		OLS          & 5.51 & 1.23 & 5.70 & 1.30 & 5.98 & 1.40 \\
+		\textit{Base} & \textit{5.71} & \textit{1.28} & \textit{5.94} & \textit{1.37} & \textit{6.27} & \textit{1.49} \\
+		\bottomrule
+	\end{tabular}
+	
+\end{table}
+
+
+
+
+%We generate data with a sample size of $T=501$. Univariate ARIMA models are selected for each series using the \textit{auto.arima} function in the \textit{forecast} package \citep{hyndman2017forecasting} in R \citep{Rcore}. The same package was used to fit each series independently using the first 500 observations, and evaluate 1-step ahead base (incoherent) probabilistic forecasts. These were then reconciled using different projections summarised in Table~\ref{table:2}. This process was replicated using $1000$ different data sets from the same data generating processes.
+
+%
+%Table~\ref{table:3} summarizes the forecasting performance of unreconciled, bottom-up, OLS, WLS and two MinT reconciliation methods using log score, energy score and variogram score. In all cases skill scores are calculated with the bottom-up method as reference. All log scores are evaluated on the basis of bottom-level series only, however these only differ from the log scores for the full hierarchy by a fixed constant. The cell for log score of unreconciled forecasts is left blank since the log score is not proper in this context. Overall, the MinT methods provide the best performance irrespective of the scoring rule, and all methods that reconcile using information at all levels of the forecast improve upon unreconciled forecasts. Bottom-up forecasts perform even worse than unreconciled forecasts in some cases.
+%
+%Tables~\ref{table:4} and~\ref{table:5} break down the forecasting performance of different reconciliation methods by considering univariate scores on each individual margin.  Tables~\ref{table:4} summarises results for the top and middle-level, Table~\ref{table:5} does the same for bottom-level. The log score and CRPS are considered, while skill scores are computed with the unreconciled forecast as a reference. When broken down in this fashion, the methods based on MinT perform best for all series and always outperform bottom-up and unreconciled forecasts.
+%
+
+
+

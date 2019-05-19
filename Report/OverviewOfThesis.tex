@@ -1,0 +1,162 @@
+%\section*{Overview of the thesis}
+Forecasting hierarchical time series has been of great interest in many applications. In hierarchical time series, it is important to have ``coherent'' forecasts across the hierarchy. That is aggregates of the forecasts at lower levels should be equal to the forecasts at the upper levels of aggregation. While there is a rich literature on coherent hierarchical point forecasting, this research focuses on a probabilistic framework for coherent hierarchical forecasts through reconciliation. Structure of the research can be outlined as follows.    
+
+\subsection*{Chapter 1: Introduction}
+\begin{itemize}
+	\item Background and motivation to the study
+	\item Objectives
+	\item Outline of the succeeding chapters
+\end{itemize}
+
+\subsection*{Chapter 2: Literature review}
+  	
+  	This chapter contains a thorough literature review of existing hierarchical point forecasting methods. Further, we discuss the importance of probabilistic framework in time series. Also, this chapter will review existing scoring rules for evaluating multivariate probabilistic forecasts in time series. 
+  	
+%  	We are planning to include this in a book chapter series in "Advanced Studies in Theoretical and Applied Econometrics".
+  
+
+\subsection*{Chapter 3: Hierarchical Forecast reconciliation}
+
+To facilitate the extension of point forecast reconciliation to probabilistic forecasting framework, we first provide a geometric interpretation of existing point reconciliation methods, re-framing them in terms of projections. In addition to being highly intuitive, this allows us to establish a number of theoretical results. We prove two new theorems about point forecast reconciliation, the first showing that reconciliation via projections preserves the unbiasedness of base forecasts, while the second shows that reconciled forecasts dominate unreconciled forecasts via the distance reducing property of projections. 
+
+Further, this chapter discusses bias adjustments in incoherent forecasts. The projections preserve unbiasedness in reconciled forecasts only if the incoherent forecasts are unbiased. However, in this chapter, we show that projections still be used to reconcile biased incoherent forecasts after some bias adjustments. This will also produce unbiased coherent forecasts. We carry out an application on Australian prison data to show these conceptual things in this chapter. 
+
+We are planning to submit the work on this chapter to the International Journal of Forecasting. 
+
+
+
+\subsection*{Chapter 4: Probabilistic forecasts for hierarchical time series}
+\subsubsection*{Section 4.1}
+This chapter mainly focuses on probabilistic forecast reconciliation. We provide definitions of coherence and forecast reconciliation in the probabilistic setting and describe how these definitions lead to a reconciliation procedure that merely involves a change of basis and marginalisation. We show that probabilistic reconciliation via linear transformations can recover the true predictive distribution as long as the latter is in the elliptical class. We provide conditions for which this linear transformation is a projection, and although this projection cannot be feasibly estimated in practice, we provide a heuristic argument in favour of MinT reconciliation.
+
+This chapter also covers the topic of forecast evaluation of probabilistic forecasts via scoring rules. In particular, we prove that for a coherent data generating process, the log score is not proper with respect to incoherent forecasts. Therefore we recommend the use of the energy score or variogram score for comparing reconciled to unreconciled forecasts. Two or more reconciled forecasts can be compared using log score, energy score or variogram score, although we show that comparisons should be made on the full hierarchy for the latter two scores.
+
+\subsubsection*{Section 4.2}
+The second half of this chapter introduces a novel non-parametric framework to reconcile probabilistic forecasts. This involves producing future paths of the hierarchy by implicitly modeling the dependency structure of the hierarchy via bootstrapped training errors. Then these future paths will be reconciled to obtain coherent probabilistic forecasts. This method will be further evaluated via an extensive simulation study. A comprehensive explanation of this section is attached as the supplementary material to the paper I'm presenting in the pre-submission seminar. 
+
+\subsubsection*{Section 4.3}
+In the third section of this chapter, we apply both parametric and non-parametric probabilistic forecast reconciliation methods discussed in the previous section on producing coherent forecasts of Australian domestic tourism floor.   
+
+We are planning to submit the work on this chapter to the Journal of Computational Statistics and Data Analysis. 
+
+
+
+
+
+
+\subsection*{Chapter 5: Hierarchical forecasting on macroeconomic variables - An application to Australian GDP forecasts}
+
+GDP of any country calculated as the aggregation of other economic variables. Thus by definition, this forms hierarchical time series. Hence in this chapter, we apply the point and probabilistic forecast reconciliation methods to forecast the Australian GDP. The results show that reconciliation improves the forecast performance in both point as well as probabilistic frameworks. 
+
+This chapter was submitted as a book chapter series in "Advanced Studies in Theoretical and Applied Econometrics" and it is now under review. The work on this chapter will be mainly presented in the pre-submission seminar.  
+
+
+\subsection*{Chapter 6: Conclusions}
+
+The final chapter of my thesis will consist of the concluding remarks of the whole thesis and possible future extensions.  
+
+\subsection*{Note:} 
+According to the initial plan of my thesis, the first project consisted of the new definitions for point and probabilistic forecast reconciliation followed by the parametric approach. Following the feedback we received from the editors of the journal we submitted this paper, we decided to split this paper and have the first paper completely on point forecast reconciliation including some additional work on bias adjustment of point forecasts and an application to Australian prison data. All this work contains in the current working paper "Geometric View on Hierarchical Forecast Reconciliation" and this will be included as the third chapter of my thesis.
+
+All definitions about probabilistic forecasts followed by the parametric approach are now included in the first half of the second project (Chapter 4 in my thesis) and the working paper on this is "Probabilistic Forecasts for Hierarchical Time Series"
+
+\pagebreak
+\section{Time plan for the thesis completion}
+
+
+\subsection*{June 2019 - July 2019}
+
+\begin{itemize}
+	\item Finishing the analysis of Australian prison data
+	\item Completing the write-up of chapter 3
+	\item Expecting to submit to IJF
+\end{itemize}
+
+
+\subsection*{July 2019 - August 2019}
+
+\begin{itemize}
+	\item Completing the write-up of chapter 4
+	\item Expecting to submit to JBES
+\end{itemize}
+
+
+\subsection*{August 2019 - October 2019}
+
+\begin{itemize}
+	\item Completing the Introduction, Background review and Conclusion chapters and submit the thesis
+\end{itemize}
+
+
+\begin{table}[h]
+	\caption{Time-line for the completion}
+	
+		\centering 
+\resizebox{\linewidth}{!}{
+	\begin{tabular}{lllll }
+		
+		&\textbf{Thesis Chapter}& \textbf{Task description} & \textbf{Time duration} &  \textbf{Progress}\\  
+		\toprule
+		& & &  & \\
+		1 and 2. & Introduction and Background Review &Writing the chapter.&September/2019 - October/2019 & 40\% Completed\\
+		&&&&\\
+		\midrule
+		& & & & \\
+		3. & Hierarchical forecast &  &&\\  
+		& reconciliation & Completing the paper. & May/2019 - July/2019 & 75\% Completed \\
+		
+		&&&&\\
+		\midrule
+		&&&&\\
+		4. & Probabilistic forecast &  &&\\  
+		& reconciliation for & Completing the paper. & June/2019 - August/2019 & 90\% Completed \\
+		& hierarchical time series &&&\\
+		&&&&\\
+		\midrule
+		&&&&\\
+		5. & Application & Forecasting Australian GDP & & 100\% Completed\\
+		&&&&\\
+		
+		\bottomrule
+	\end{tabular}
+}
+\end{table}
+
+
+%\begin{table}
+%	\caption{Time plan of the Research}
+%	
+%	\centering \small
+%	\begin{tabular}{llll }
+%		
+%		\textbf{Thesis Chapter}& \textbf{Task description} & \textbf{Time duration} &  \textbf{Progress}\\  
+%		\toprule
+%		Introduction and & Understanding the problem&  & \\
+%		Literature Review&and review on literature&Feb/2016 - Nov/2016&Completed\\
+%		& associate with the problem.&&\\
+%		& Writting the chapters. & May/2018 - July/2018 & Incomplete\\
+%		\midrule
+%		& Defining Coherent & & \\
+%		& forecasts.  & Mar/2017 - June/2017 & Completed \\
+%		Probabilistic forecast & Defining probabilistic &&\\  
+%		reconciliation in the   & forecast reconciliation. & Mar/2017 - June/2017 & Completed \\
+%		
+%		hierarchical time series& Gaussian forecast& & \\
+%		& reconciliation. &Nov/2016 - Feb/2017 & Completed \\ 
+%		& Simulation study.  & Feb/2017 - June/2017 & Completed \\
+%		\midrule
+%		
+%		Probabilistic forecast 	& Methodology 			& Nov/2016 - Feb/2017  & Completed\\  
+%		reconciliation in the   & Simulation study 		& Mar/2017 - June/2017 & Completed \\
+%		non-parametric framework& Providing theoretical & 					   &\\
+%		&foundation				& Apr/2018 - July/2018 & Incomplete\\
+%		\midrule
+%		
+%		& Forecasting Australian 	& 					  &\\
+%		Application & Domestic Tourism Flow  	& Dec/2017 - Mar/2017 & Complete\\
+%		& Forecasting Walmart sales & Oct/2017 - Mar/2019 & Incomplete\\
+%		
+%		
+%		\bottomrule
+%	\end{tabular}
+%\end{table}
