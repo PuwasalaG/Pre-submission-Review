@@ -1,4 +1,4 @@
-\documentclass[11pt,xcolor=dvipsnames,handout]{beamer} %handout %table
+\documentclass[11pt,xcolor=dvipsnames,table]{beamer} %handout %table
 
 % Specify theme
 \usetheme{Madrid}
@@ -55,7 +55,7 @@
 \AtEveryBibitem{\clearfield{month}}
 \AtEveryCitekey{\clearfield{month}}
 % Title and author information
-\title[Probabilistic Hierarchical Forecasting]{Probabilistic Forecasts for Hierarchical Time Series}
+\title[\textcolor{white}{Probabilistic Hierarchical Forecasting}]{Probabilistic Forecasts for Hierarchical Time Series}
 \author[Puwasala Gamakumara]{Candidate:\\Puwasala Gamakumara\\ \medskip \medskip Supervisors:\\  Rob J. Hyndman, George Athanasopoulos,\\Anastasios Panagiotelis }
 \institute[]{Department of Econometrics and Business Statistics\\ \medskip Monash University}
 
@@ -70,6 +70,8 @@
 \def\PQ{\begin{pmatrix}\bm{P}\\[-0.2cm]\bm{Q}\end{pmatrix}}
 \def\bt{\begin{pmatrix}\tilde{\bm{b}}_{t+h}\\[-0.2cm]\bm{t}_{t+h}\end{pmatrix}}
 \def\bth{\begin{pmatrix}\tilde{\bm{b}}_{T+h}\\[-0.2cm]\bm{t}_{T+h}\end{pmatrix}}
+\def\Naive{Na\"{i}ve\ }
+\def\naive{na\"{i}ve\ }
 
 %\begin{adjustbox}{max size={\textwidth}{\textheight}}
 %	\includegraphics[#1]{#3}%
@@ -159,7 +161,7 @@
 %\frametitle{A first slide}
 
 \begin{center}
-\Huge Project 1: Hierarchical Forecast Reconciliation in Geometric View
+\Huge Project 1: Hierarchical Forecast Reconciliation: A Geometric View
 \end{center}
 \end{frame}
 
@@ -176,8 +178,8 @@
 			\end{figure}
 		\item []
 		
-		\item \textbf{Hierarchical time series:} A collection of multiple time series that has an inherent aggregation structure 
-		\item Forecasts should add up. We call these \textit{coherent}
+		\item \textbf{Hierarchical time series:} A collection of multiple time series that has an inherent aggregation structure. 
+		\item Forecasts should add up. We call these \textit{coherent}.
 		\item \textbf{\color{Maroon}Objective:} Defining coherency and reconciliation of point forecasts in terms of geometric concepts.\\
 		
 		\end{itemize}
@@ -213,7 +215,7 @@
 	    			\end{itemize}	
        		\end{columns} 
 		\item Due to the aggregation nature of the hierarchy we have, 
-$$\color{Maroon} \bm{y}_t = \bm{Sb}_t$$
+$$\color{Maroon} \bm{y}_t = \bm{Sb}_t.$$
 		\item[]
 		\begin{block}{Coherent subspace}
 			The $m$-dimensional linear subspace $\mathfrak{s}\subset \mathbb{R}^n$ that is spanned by the columns of $\bm{S}$, i.e.\ $\mathfrak{s}=\text{span}(\bm{S})$, is defined as the \emph{coherent space}.
@@ -224,12 +226,15 @@ $$\color{Maroon} \bm{y}_t = \bm{Sb}_t$$
 %-------------------
 
 \begin{frame}{Project 1: \textit{Coherent forecasts}}
-\begin{itemize}[<+-| alert@+>]
+\begin{itemize}
 	\item[] 		
-	\centering
+%	\centering
+	\begin{center}
 	\vspace{-1.5cm}
-	\includegraphics[scale=0.45]{Figs/3D_hierarchy}
-	
+	\includegraphics[scale=0.40]{Figs/3D_hierarchy}
+	\end{center}
+	\item Three dimensional hierarchy, $y_{Tot} = y_A + y_B$.
+	\item $\vec{s}_1 = (1,1,0)'$ and $\vec{s}_2 = (1, 0, 1)'$ form a basis for $\mathfrak{s}$.
 \end{itemize}    
 \end{frame}
 
@@ -290,8 +295,17 @@ $$\color{Maroon} \bm{y}_t = \bm{Sb}_t$$
 	\item[]
 	\item If $g(.)$ is linear,
 		\begin{equation*}
-			\color{Maroon}\tilde{\bm y}_{T+h} = \bm{SG}\hat{\bm y}_{T+h}
+			\color{Maroon}\tilde{\bm y}_{T+h} = \bm{SG}\hat{\bm y}_{T+h}.
 		\end{equation*}
+	\item Single level approaches:
+	\begin{itemize}[<+-| alert@+>]
+		\item Bottom-up: $\color{Purple}\bm{G}=\begin{pmatrix}
+		\bm{0}_{(m \times n-m)} & \bm{I}_m
+		\end{pmatrix}$
+		\item Top-down: $\color{Purple}\bm{G}=\begin{pmatrix}
+		\bm{p} & \bm{0}_{(m \times n-1)}
+		\end{pmatrix}$
+	\end{itemize}	
  		
 \end{itemize}    
 \end{frame}
@@ -327,17 +341,18 @@ $$\color{Maroon} \bm{y}_t = \bm{Sb}_t$$
 
 \begin{frame}{Project 1: \textit{Point forecast reconciliation - MinT}}
 \begin{itemize}[<+-| alert@+>]
-	\item Minimises the trace of mean squared reconciled forecast errors \citep{Wickramasuriya2018}
+	\item Minimises the trace of mean squared reconciled forecast errors \citep{Wickramasuriya2018}.
+	$$ \color{Maroon} \bm{SG} = \bm{S} \left(\bm{S}'\bm{W}^{-1}_{T+h}\bm{S}\right)^{-1}{\bm S'}\bm{W}^{-1}_{T+h}$$ 
 	\item \textbf{Geometry}
   	\begin{itemize}[<+-| alert@+>]
-  	\item Consider the covariance matrix of ${\bm y}_{T+h}-\hat{\bm{y}}_{T+h}$.
+  	\item Consider the covariance matrix $\bm{W}_{T+h}$ of ${\bm y}_{T+h}-\hat{\bm{y}}_{T+h}$.
 
 	\item This can be estimated using in-sample forecast errors.
 		\begin{equation*}
-		\bm{W}=\sum\limits_{t=1}^T ({\bm y}_{t}-\hat{\bm{y}}_{t})({\bm y}_{t}-\hat{\bm{y}}_{t})'
+		\hat{\bm{W}}_{T+h}=\sum\limits_{t=1}^T ({\bm y}_{t}-\hat{\bm{y}}_{t})({\bm y}_{t}-\hat{\bm{y}}_{t})'
 		\end{equation*}
 	\pause
-	\item This provides information about the likely direction of an error.
+	\item This provides information about the likely direction of the largest error variance.
 	\pause
 	\item Projecting along this direction is more likely to result in reconciled forecasts that are closer to the target.
 
@@ -367,16 +382,17 @@ $$\color{Maroon} \bm{y}_t = \bm{Sb}_t$$
 \end{frame}
 
 
+
 %-------------------
 
 \begin{frame}{Project 1: \textit{Why projections?}}
 \begin{itemize}[<+-| alert@+>]
-	\item Projections preserve unbiasedness
+	\item Projections onto the coherent subspace preserve unbiasedness.
 	\item[]
-	\item What if the base forecasts are biased?
+	\item What if the incoherent forecasts are biased?
 	\item[]
 	\item Can we bias correct and proceed with projections? 
-	\item[] We investigate this further
+	\item[] We investigate this further.
 \end{itemize}    
 \end{frame}
 
@@ -393,7 +409,7 @@ $$\color{Maroon} \bm{y}_t = \bm{Sb}_t$$
 
 %-------------------
 
-\subsection{Part 1: Definitions and Parametric Approach}
+\subsection{Part 1: Definitions and A Parametric Approach}
 
 \begin{frame}[noframenumbering]
 \frametitle[]
@@ -409,7 +425,7 @@ $$\color{Maroon} \bm{y}_t = \bm{Sb}_t$$
 
 \begin{frame}[noframenumbering]{Project 2: \textit{Motivation and Objectives}}
 \begin{itemize}[<+-| alert@+>]
-			\item Extending ``reconciliation" into a probabilistic framework
+			\item Extending ``reconciliation" into a probabilistic framework.
 			\item[]
 			\item Probabilistic forecasts should reflect the inherent properties of real data. In particular, 
 			\begin{itemize}[<+-| alert@+>]
@@ -425,11 +441,11 @@ $$\color{Maroon} \bm{y}_t = \bm{Sb}_t$$
 				
 	\item \textbf{\color{Maroon}Objectives:} 
 	\begin{enumerate}
-		\item Defining coherency and reconciliation for probabilistic forecasts
+		\item Defining coherency and reconciliation for probabilistic forecasts.
 		\item[]
-		\item Probabilistic forecast reconciliation in a parametric framework
+		\item Probabilistic forecast reconciliation in a parametric framework.
 		\item[]
-		\item Probabilistic forecast reconciliation in a non-parametric framework
+		\item Probabilistic forecast reconciliation in a non-parametric framework.
 	\end{enumerate}	
 	\item[]
 	
@@ -474,9 +490,14 @@ where $g^{-1}$ is the pre-image of $g$.
 %--------------------
 
 \begin{frame}{Project 2: \textit{Geometry}}
-\begin{itemize}[<+-| alert@+>]
-	\item[] \centering
-	\input{Figs/probforerec_schematic}
+\begin{itemize}
+	\item[]
+	\vspace{-0.5cm}
+	\centering
+	\includegraphics[scale=0.5]{Figs/probforerec_schematic.pdf}
+	\item[]\begin{equation*}
+	\tilde{\nu}(s(\mathcal{B}))=\hat{\nu}(g^{-1}(\mathcal{B}))\quad\forall \mathcal{B}\in\mathcal{F}_{\mathbb{R}_m}
+	\end{equation*} 
 \end{itemize}    
 \end{frame}
 
@@ -486,9 +507,9 @@ where $g^{-1}$ is the pre-image of $g$.
   \begin{frame}{Project 2: \textit{Analytically}}
 If we have an unreconciled density the reconciled density can be obtained by linear transformations and marginalisation.
 \begin{align*}
-\mbox{Pr}(\tilde{\bm{b}}\in \mathcal{B})&=\mbox{Pr}(\hat{\bm{y}}\in g^{-1}(\mathcal{B}))\\
-&=\int\limits_{g^{-1}(\mathcal{B})}f(\hat{\bm{y}})d\hat{\bm{y}}\\
-&=\int\limits_{\mathcal{B}}\int f(\bm{S}\tilde{\bm{b}}+\bm{R}\tilde{\bm{a}})|\left(\bm{S}~\bm{R}\right)|d\tilde{\bm{a}}d\tilde{\bm{b}}
+\mbox{Pr}(\hat{\bm{y}}\in g^{-1}(\mathcal{B}))&=\int\limits_{g^{-1}(\mathcal{B})}f(\hat{\bm{y}})d\hat{\bm{y}}\\
+&=\int\limits_{\mathcal{B}}\int f(\bm{S}\tilde{\bm{b}}+\bm{R}\tilde{\bm{a}})|\left(\bm{S}~\bm{R}\right)|d\tilde{\bm{a}}d\tilde{\bm{b}}\\
+&=\mbox{Pr}(\tilde{\bm{b}}\in \mathcal{B})
 \end{align*}
 \end{frame}
 
@@ -497,27 +518,19 @@ If we have an unreconciled density the reconciled density can be obtained by lin
 
 %------------------------
 
-\begin{frame}{Project 2: \textit{For elliptical distributions}}
-Consider the case where the base and true predictive distributions are elliptical.
-	\begin{theorem}
-		There exists a matrix $\bm{G}$ such that the true predictive distribution can be recovered by linear reconciliation.
-	\end{theorem}
-This follows from the closure property of elliptical distributions under affine transformations and marginalisation.  
-\end{frame}
 
-%-----------------------
 
 \begin{frame}{Project 2: \textit{Assuming Gaussian distribution}}
 \begin{itemize}[<+-| alert@+>]
 	\item Let $\mathscr{N}(\hat{\bm{y}}_{T+h}, \bm{W}_{T+h})$ be an incoherent forecast distribution at time $T+h$
-	where $\hat{\bm{y}}_{T+h}$ is the incoherent mean and ${\bm{W}}_{T+h} =E_{\bm{y}_{T+h}}[(\bm{y}_{T+h}-\hat{\bm{y}}_{T+h})(\bm{y}_{T+h}-\hat{\bm{y}}_{T+h})^T|\mathcal{I}_{T}]$ is incoherent variance 
+	where $\hat{\bm{y}}_{T+h}$ is the incoherent mean and ${\bm{W}}_{T+h} =E_{\bm{y}_{T+h}}[(\bm{y}_{T+h}-\hat{\bm{y}}_{T+h})(\bm{y}_{T+h}-\hat{\bm{y}}_{T+h})^T|\mathcal{I}_{T}]$ is the incoherent variance 
 	%\item Gaussian densities are closed under affine transformation and marginalization
 	\item The reconciled Gaussian distribution is given by, 
 	$$\color{Maroon}\mathscr{N}(\bm{SG}\bm{\hat{y}}_{T+h},~ \bm{SG}{\bm{W}}_{T+h}\bm{G}'\bm{S}')$$
 	
 	\item ${\bm G}=\left(\bm{S}'\bm{W}_{T+h}^{-1}\bm{S}\right)^{-1}{\bm S'}\bm{W}_{T+h}^{-1}$ minimizes the energy score in the limiting case
 	\hyperlink{ScoringRules}{\hypertarget{backtoScoringRule}{\beamerbutton{A1}}} 
-	\item Simulation study evident for improved predictive performance in reconciled Gaussian forecast distributions	
+	\item Simulation study evidence for improved predictive performance in reconciled Gaussian forecast distributions.	
 	
 \end{itemize}    
 
@@ -525,11 +538,21 @@ This follows from the closure property of elliptical distributions under affine 
 
 %------------------------
 
+\begin{frame}{Project 2: \textit{For elliptical distributions}}
+Consider the case where the base and true predictive distributions are elliptical.
+\begin{theorem}
+	There exists a matrix $\bm{G}$ such that the true predictive distribution can be recovered by linear reconciliation.
+\end{theorem}
+This follows from the closure property of elliptical distributions under affine transformations and marginalisation.  
+\end{frame}
+
+%-----------------------
+
 \begin{frame}[noframenumbering]{Today's talk}
 \begin{itemize}[<+-| alert@+>]
-	\item A non-parametric bootstrap approach for probabilistic forecasts reconciliation
+	\item A non-parametric bootstrap approach for probabilistic forecast reconciliation.
 	\item[]
-	\item Hierarchical forecasts in macroeconomic variables - An application to Australian GDP forecasts
+	\item Hierarchical forecasts for macroeconomic variables - An application to Australian GDP.
 \end{itemize}    
 \end{frame}
 
@@ -543,38 +566,43 @@ This follows from the closure property of elliptical distributions under affine 
 %\frametitle{A first slide}
 
 \begin{center}
-\Huge Part 2: A non-parametric bootstrap approach for probabilistic forecasts reconciliation
+\Huge Part 2: A non-parametric bootstrap approach for probabilistic forecast reconciliation
 \end{center}
 \end{frame}
 
 %------------------------
 \begin{frame}[noframenumbering]{Probabilistic forecast reconciliation: Non-parametric approach}
 \begin{itemize}[<+-| alert@+>]
-	\item [$\bullet$] Often parametric densities are unavailable but we can simulate a sample from the predictive distribution
+	\item [$\bullet$] Often parametric densities are unavailable but we can simulate a sample from the predictive distribution.
 	\item[]
-	\item [$\bullet$] Suppose $\hat{\bm y}^{[1]}_{T+h},...,\hat{\bm y}^{[J]}_{T+h}$ is a sample from the incoherent predictive distribution
+	\item [$\bullet$] Suppose $\hat{\bm y}^{[1]}_{T+h},...,\hat{\bm y}^{[J]}_{T+h}$ is a sample from the incoherent predictive distribution.
 	\item[]
-	\item [$\bullet$] Then setting $\tilde{\bm y}^{[j]}_{T+h}=\bm{SG}\hat{\bm y}^{[j]}_{T+h}$ produces a sample from the reconciled predictive distribution with respect to $\bm{G}$
+	\item [$\bullet$] Then setting $\tilde{\bm y}^{[j]}_{T+h}=\bm{SG}\hat{\bm y}^{[j]}_{T+h}$ produces a sample from the reconciled predictive distribution with respect to $\bm{G}$.
 \end{itemize}    
 \end{frame}
 
 %-----------------------
 
 
-\begin{frame}{Probabilistic forecast reconciliation: Non-parametric approach}
+\begin{frame}{A Non-parametric approach}
 \begin{enumerate}[<+-| alert@+>]
-\item Fit univariate models at each node using data up to time $T$
+\item Fit univariate models at each node using data up to time $T$.
 \item[]
 \item Let $\bm{\Gamma}_{(T \times n)}=(\bm{e}_1,\bm{e}_2,\dots,\bm{e}_T)'$ be a matrix of in-sample residuals\\
-where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$ 
+where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}}_t$. 
 \item[]
-\item Let $\bm{\Gamma}^b_{(H \times n)} = (\bm{e}^b_1,...,\bm{e}^b_H)'$ be a block bootstrap sample of size $h$ from $\bm{\Gamma}$ and repeat this for $b = 1,...,B$.  
+\item Let $\bm{\Gamma}^b_{(H \times n)} = (\bm{e}^b_1,...,\bm{e}^b_H)'$ be a block bootstrap sample of size $H$ from $\bm{\Gamma}$.  
 \item[]
 \item Generate $h$-step ahead sample paths from the fitted models incorporating $\bm{\Gamma}^b$. Denote these by $\hat{\bm{y}}^b_{T+h}$, for $h=1,...,H$.
+%\item[]
+%\item  Repeat step 4 for $b = 1,...,B$ times.
+%\item[]
+%\item Setting $\tilde{\bm{y}}_{T+h,j}^b = \bm{SG}\hat{\bm{y}}_{T+h,j}^b$ produces a sample from the reconciled distribution.
+
 \item[]
-\item  Repeat step 4 for $b = 1,...,B$ times
+\item  Repeat step 3 and 4 for $b = 1,...,B$ times. Denote these as $\hat{\bm{\Upsilon}}_{T+h}=(\hat{\bm{y}}^1_{T+h},...,\hat{\bm{y}}^B_{T+h})'$ for all $h$.
 \item[]
-\item Setting $\tilde{\bm{y}}_{T+h,j}^b = \bm{SG}\hat{\bm{y}}_{T+h,j}^b$ produces a sample from the reconciled distribution
+\item Setting $\tilde{\bm{\Upsilon}}_{T+h} = \bm{SG}\hat{\bm{\Upsilon}}'_{T+h}$ produces a sample from the reconciled distribution.
 
 \seti
 \end{enumerate}
@@ -585,13 +613,13 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 
 \begin{frame}{Optimal reconciliation of future paths}
 \begin{itemize}[<+-| alert@+>]
-	\item We propose to find an optimal $\bm{G}$ matrix by minimizing Energy score 
+	\item We propose to find an optimal $\bm{G}_h$ matrix by minimizing Energy score. 
 	
 	\begin{equation*}
-	\operatornamewithlimits{argmin}_{\bm{G}_h} \quad \E_{\bm{Q}}[eS(\bm{SG}_h\hat{\bm{\Upsilon}}'_{T+h}, \bm{y}_{T+h})],
+	\operatornamewithlimits{argmin}_{\bm{G}_h} \quad \E_{\bm{Q}}[eS(\tilde{\bm{F}}, \bm{y}_{T+h})], \quad  \tilde{\bm{F}} := \tilde{\bm{\Upsilon}}_{T+h} = \bm{SG}_h\hat{\bm{\Upsilon}}'_{T+h}
 	\end{equation*}
 	where, \begin{align*}
-	\text{eS}(\tilde{\bm{\Upsilon}}_{T+h},\bm{y}_{T+h}) = 
+	\text{eS}(\tilde{\bm{F}},\bm{y}_{T+h}) = 
 	\E_{\tilde{\bm{F}}}
 	\|\tilde{\bm{Y}}_{T+h}-\bm{y}_{T+h}\|^\alpha -
 	\frac{1}{2}\E_{\tilde{\bm{F}}}\|\tilde{\bm{Y}}_{T+h}-\tilde{\bm{Y}}^*_{T+h}\|^\alpha,\\ \alpha \in (0,2]
@@ -600,8 +628,8 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 	
 	\begin{block}{}
 		\begin{align*}
-		\operatornamewithlimits{argmin}_{\bm{G}} \quad \sum_{i=1}^{N}\Big\{\frac{1}{B}\sum_{j=1}^{B}||\bm{SG}&\hat{\bm{y}}_{T+h,i,j}^b -\bm{y}_{T+h}||-\\
-		&\frac{1}{2(B-1)}\sum_{j=1}^{B-1}||\bm{SG}(\hat{\bm{y}}_{T+h,i,j}^b -\hat{\bm{y}}_{T+h,i,j+1}^b)||\Big\}
+		\operatornamewithlimits{argmin}_{\bm{G}_h} \quad \sum_{i=1}^{N}\Big\{\frac{1}{B}\sum_{b=1}^{B}||\bm{SG}_h&\hat{\bm{y}}_{T+h,i}^b -\bm{y}_{T+h}||-\\
+		&\frac{1}{2(B-1)}\sum_{b=1}^{B-1}||\bm{SG}_h(\hat{\bm{y}}_{T+h,i}^b -\hat{\bm{y}}_{T+h,i,}^{b+1})||\Big\}
 		\end{align*}
 	\end{block}
 \end{itemize}
@@ -610,22 +638,22 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 %%-------------------------------
 \begin{frame}{Optimal reconciliation of future paths \textit{Cont.}}
 \begin{itemize}[<+-| alert@+>]
-\item We impose the following structure to the $\bm{G}$ matrix
+\item We impose the following structure to the $\bm{G}_h$ matrix
 \begin{equation}\label{eq:2}
-\bm{G}=\left(\bm{S}'\bm{W}\bm{S}\right)^{-1}{\bm S'}\bm{W}
+\bm{G}_h=\left(\bm{S}'\bm{W}_h\bm{S}\right)^{-1}{\bm S'}\bm{W}_h
 \end{equation}
-\item We propose four methods to optimise $\bm{G}$
+\item We propose four methods to optimise $\bm{G}_h$
 \begin{enumerate}
 	\item[]
-	\item[] \textbf{\color{Maroon}Method 1:} Optimising $\bm{W}$
+	\item[] \textbf{\color{Maroon}Method 1:} Optimising $\bm{W}_h$
 	\item[] 
-	\item[] \textbf{\color{Maroon}Method 2:} Optimising cholesky decomposition of $\bm{W}$
-	\item[] \textbf{\color{White}Method 2:} $\bm{W}=\bm{R'R}$ where $\bm{R}$ is an upper triangular matrix 
+	\item[] \textbf{\color{Maroon}Method 2:} Optimising Cholesky decomposition of $\bm{W}_h$
+	\item[] \textbf{\color{White}Method 2:} $\bm{W}_h=\bm{R_h'R_h}$ where $\bm{R}_h$ is an upper triangular matrix 
 	\item[]
-	\item[] \textbf{\color{Maroon}Method 3:} Optimising cholesky of $\bm{W}$ - restricted for scaling
-	\item[] \textbf{\color{White}Method 3:}$\bm{W}=\bm{R'R} \quad \text{s.t} \quad \bm{i'Wi}=1$ where $\bm{i}=(1,0,..,0)'$
+	\item[] \textbf{\color{Maroon}Method 3:} Optimising Cholesky of $\bm{W}_h$ - restricted for scaling
+	\item[] \textbf{\color{White}Method 3:}$\bm{W}_h=\bm{R'_hR_h} \quad \text{s.t} \quad \bm{i'W_hi}=1$ where $\bm{i}=(1,0,..,0)'$
 	\item[] 
-	\item[] \textbf{\color{Maroon}Method 4:} Optimising $\bm{G}$ such that $\bm{GS=I}$
+	\item[] \textbf{\color{Maroon}Method 4:} Optimising $\bm{G}_h$ such that $\bm{G}_h\bm{S=I}$
 	
 \end{enumerate}
 \end{itemize}
@@ -661,7 +689,7 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 		\end{figure}
 	\end{columns} 
 	\item[]
-	\item DGP was designed such that we have much noisier series in the bottom level
+	\item DGP was designed such that we have much noisier series in the bottom level.
 	
 \end{itemize}
 \end{frame}
@@ -680,13 +708,13 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 \begin{itemize}
 	\item Simulation setup: 
 	\begin{itemize}[<+-| alert@+>]
-		\item [$\bullet$] First 2500 observations generated
-		\item [$\bullet$] Fit Univariate ARIMA models for a rolling window of 500 observations
-		\item [$\bullet$] $B=1000$ of $h=1,2,3$ steps-ahead bootstrap future paths generated
-		\item [$\bullet$] Training window is rolled one observation ahead and process was repeated until we get $N=100$ of incoherent, $h=1,2,3$ steps-ahead future paths
-		\item [$\bullet$] We find the optimal $\bm{G}_h$ for $h=1,2,3$ that reconcile $h$-step-ahead future paths giving minimal average Energy score 
-		\item [$\bullet$] This optimal $\bm{G}$ is then used to reconcile the incoherent future paths obtained for the test set
-		\item [$\bullet$] Process was repeated for 1000 times and average scores were calculated for the test set
+		\item [$\bullet$] First 2500 observations were generated.
+		\item [$\bullet$] Fit Univariate ARIMA models for a rolling window of 500 observations.
+		\item [$\bullet$] $B=1000$ of $h=1,2,3$ steps-ahead bootstrap future paths generated.
+		\item [$\bullet$] Training window is rolled one observation ahead and process was repeated until $N=100$ incoherent, $h=1,2,3$ steps-ahead future paths were generated.
+		\item [$\bullet$] We find the optimal $\bm{G}_h$ for $h=1,2,3$ that reconciles $h$-step-ahead future paths giving minimal average Energy score. 
+		\item [$\bullet$] This optimal $\bm{G}_h$ is then used to reconcile the incoherent future paths for the test set.
+		\item [$\bullet$] The Process was repeated 1000 times and average scores were calculated for the test set.
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -728,7 +756,7 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 
 \begin{frame}{Monte-Carlo Simulation \textit{Cont.}}
 \begin{itemize}
-	\item Comparison with point forecast reconciliation methods
+	\item Comparison with point forecast reconciliation methods.
 	\item[]
 	\begin{table}
 		\resizebox{\linewidth}{!}{
@@ -750,14 +778,16 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 				OLS 				& 2.54* & 0.105 & 2.80* & 0.105 & 5.51* & 1.23 & 5.98* & 1.40*\\
 				\textit{Base} 		& $\textit{2.67}$ & $\textit{0.105}$ & $\textit{2.94}$ & $\textit{0.105}$ & $\textit{5.71}$ & $\textit{1.28}$ & $\textit{6.27}$ & $\textit{1.49}$\\   			
 				\bottomrule
-				
+				 \multicolumn{9}{l}{\text{``*'' indicates if the average score for a particular reconciliation method is significantly }}\\
+				 \multicolumn{9}{l}{\text{different from that of base forecasts.}}
+				 
 			\end{tabular}
 		}
 	\end{table}
 	\item[]
-	\item Reconciliation methods perform better than Base forecasts
+	\item Reconciliation methods perform better than Base forecasts.
 	\item[]
-	\item MinT(Shrink) is at least as good as Optimal method. Thus going forward with MinT projection 
+	\item MinT(Shrink) is at least as good as Optimal method. Thus going forward with MinT projection. 
 	
 \end{itemize}
 \end{frame}
@@ -775,14 +805,14 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 
 %----------------------
 
-\section{Hierarchical forecasts for macroeconomic variables - An application to Australian GDP}
+\section{Project 3: Hierarchical forecasts for macroeconomic variables - An application to Australian GDP}
 
 \begin{frame}
 \frametitle[]
 %\frametitle{A first slide}
 
 \begin{center}
-	\Huge Hierarchical forecasts for macroeconomic variables - An application to Australian GDP
+	\Huge Project 3: Hierarchical forecasts for macroeconomic variables - An application to Australian GDP
 \end{center}
 \end{frame}
 
@@ -796,25 +826,25 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 			\input{Figs/HTS_Example_2-GDP}
 		\end{overprint}
 	\end{figure}
-	\item Common forecasting approaches involves univariate methods of multivariate methods such as VAR
+	\item Common forecasting approaches involves univariate methods or multivariate methods such as VAR.
 	\item[]
-	\item The era of big data led to the use of regularization and shrinkage methods - dynamic factor models, Lasso, Bayesian VARs
+	\item The era of big data led to the use of regularization and shrinkage methods - dynamic factor models, Lasso, Bayesian VARs.
 	\item[]
 	\item The predictors in these methods commonly include the components of the variables of interest. 
 	\item[]
-	\item This might fail to reflect the deterministic relationship between macroeconomic variables in the forecasts
+	\item This might fail to reflect the deterministic relationship between macroeconomic variables in the forecasts.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Macroeconomic forecasting}
 \begin{itemize}[<+-| alert@+>]
-	\item Both aligned decision making and forecast accuracy are key concerns for economic agents and policy makers
+	\item Both aligned decision making and forecast accuracy are key concerns for economic agents and policy makers.
 	\item[]
 	\item Thus we propose to use hierarchical forecasting methods in macroeconomic forecasts.
 	\item[]
 	\item Related literature: Only one application on point forecasting for inflation \citep{capistran2010multi,weiss2018essays}
 	\item[]
-	\item To the best of our knowledge we use hierarchical forecasting methods for point as well as probabilistic forecasts for the first time in macroeconomic literature 
+	\item To the best of our knowledge we use hierarchical forecasting methods for point as well as probabilistic forecasts for the first time in macroeconomic literature. 
 \end{itemize}
 \end{frame}
 
@@ -823,14 +853,14 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 
 \begin{frame}{Australian GDP : \textit{Data structures}}
 \begin{itemize}[<+-| alert@+>]
-	\item We consider Gross Domestic Product (GDP) of Australia with quarterly data spanning the period 1984:Q4--2018:Q3
+	\item We consider Gross Domestic Product (GDP) of Australia with quarterly data spanning the period 1984:Q4--2018:Q3.
 	\item[]
-	\item The Australian Bureau of Statistics (ABS) measures GDP using three main approaches - Production, Income and Expenditure
+	\item The Australian Bureau of Statistics (ABS) measures GDP using three main approaches - Production, Income and Expenditure.
 	\item[] The final GDP figure is obtained as an average of these three figures.
 	\item[]
-	\item We restrict our attention to nominal, seasonally unadjusted data
+	\item We restrict our attention to nominal, seasonally unadjusted data.
 	\item[]
-	\item Thus we concentrate on the Income and Expenditure approaches  
+	\item Thus we concentrate on the Income and Expenditure approaches.  
 \end{itemize}
 \end{frame}
 
@@ -850,7 +880,7 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 	& + \textit{Statistical discrepancy (I)}.
 	\end{align*}
 \end{block}
-	\item  The hierarchy has two levels of aggregation below the top-level, with a total of $n=16$ series and $m=10$ bottom level series
+	\item  The hierarchy has two levels of aggregation below the top-level, with a total of $n=16$ series and $m=10$ bottom level series.
 
 \end{itemize}
 \end{frame}
@@ -888,7 +918,7 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 		\end{align*}
 	\end{block}
 	
-	\item The hierarchy has three levels of aggregation below the top-level, with a total of $n=80$ series and $m=53$ series at the bottom level
+	\item The hierarchy has three levels of aggregation below the top-level, with a total of $n=80$ series and $m=53$ series at the bottom level.
 	
 \end{itemize}
 \end{frame}
@@ -900,8 +930,8 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 \begin{itemize}[<+-| alert@+>]
 \item[] 
 \begin{figure}
+	\vspace{-0.7cm}
 	\resizebox{\linewidth}{!}{
-		\vspace{-2cm}
 		\includegraphics[width=.9\textwidth]{Figs/Hierarchical-structures/ExpenditureApproach.pdf}
 	}
 \end{figure}	
@@ -916,9 +946,10 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 \begin{itemize}[<+-| alert@+>]
 	\item[] 
 	\begin{figure}
+		\vspace{-0.7cm}
+		\centering
 		\resizebox{\linewidth}{!}{
-			\vspace{-2cm}
-			\includegraphics[scale=0.05]{Figs/Hierarchical-structures/GFCF.pdf}
+			\includegraphics[scale=0.03]{Figs/Hierarchical-structures/GFCF.pdf}
 		}
 	\end{figure}	
 	
@@ -932,8 +963,10 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 \begin{itemize}[<+-| alert@+>]
 	\item[] 
 	\begin{figure}
+		\vspace{-0.7cm}
+		\centering
 		\resizebox{\linewidth}{!}{
-			\includegraphics[scale=0.05]{Figs/Hierarchical-structures/HFCE.pdf}
+			\includegraphics[scale=0.01]{Figs/Hierarchical-structures/HFCE.pdf}
 		}
 	\end{figure}	
 	
@@ -964,14 +997,14 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 \begin{itemize}[<+-| alert@+>]
 	\item \textbf{Analysis set up:}
 	\begin{itemize}[<+-| alert@+>]
-		\item[$\bullet$] First training sample is set from 1984:Q4 to 1994:Q3 and forecasts produces for four quarters ahead (1994:Q4 to 1995:Q3)
-		\item[$\bullet$] Then the training window is expanded by one quarter at a time
+		\item[$\bullet$] First training sample is set from 1984:Q4 to 1994:Q3 and forecasts produces for four quarters ahead (1994:Q4 to 1995:Q3).
+		\item[$\bullet$] Then the training window is expanded by one quarter at a time.
 		\item[$\bullet$] This leads to 94 1-step-ahead, 93 2-steps-ahead, 92 3-steps-ahead and 91 4-steps-ahead forecasts available for evaluation. 
 	\end{itemize}
 	\item[]
 	\item \textbf{Base forecasting models:}
 	\begin{itemize}[<+-| alert@+>]
-		\item[$\bullet$] Univariate ARIMA and ETS models were fitted for each training set \item[$\bullet$] Four step ahead forecasts were generated using the fitted models
+		\item[$\bullet$] Univariate ARIMA and ETS models were fitted for each training set. \item[$\bullet$] $h=1,2,3,4$ steps ahead forecasts were generated using the fitted models.
 	\end{itemize}
 	
 \end{itemize}
@@ -979,7 +1012,7 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 
 
 %------------------%
-\begin{frame}{Point forecasts: \textit{Base vs Naive}}
+\begin{frame}{Point forecasts: \textit{Base vs Seasonal \Naive}}
 \begin{itemize}[<+-| alert@+>]
 	\item[] 
 	\resizebox{\linewidth}{!}{
@@ -1132,8 +1165,8 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 
 \begin{frame}[noframenumbering]{Summary}
 	\begin{itemize}[<+-| alert@+>]
-		\item We define point and probabilistic forecast reconciliation in geometric terms
-		\item We propose a parametric approach for probabilistic forecast reconciliation 
+		\item We define point and probabilistic forecast reconciliation in geometric terms.
+		\item We propose a parametric approach for probabilistic forecast reconciliation. 
 		
 %		\item[]
 %		\item Our definition holds for linear and non-linear reconciliation
@@ -1143,11 +1176,11 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}_t}$
 %		\item[] Step 2: Marginalize over the null space of the coherent subspace
 %		\item[]
 %		\item MinT not only produces optimal point forecasts, but also optimally reconcile Gaussian forecast densities
-		\item We introduce a novel non-parametric bootstrap approach for producing reconciled probabilistic forecasts
+		\item We introduce a novel non-parametric bootstrap approach for producing reconciled probabilistic forecasts.
 		\item[]
-		\item Simulation study evident that the optimal reconciliation with respect to energy score is equivalent to reconciling each sample path via MinT approach
+		\item Simulation study provides evidence that the optimal reconciliation with respect to energy score is equivalent to reconciling each sample path via MinT approach.
 		\item[]
-		\item We apply hierarchical forecast reconciliation methods to forecast Australian GDP in point as well as probabilistic framework
+		\item We apply hierarchical forecast reconciliation methods to forecast Australian GDP in point as well as probabilistic framework.
 		
 	\end{itemize}
 \end{frame}
