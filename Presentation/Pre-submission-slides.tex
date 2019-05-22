@@ -68,8 +68,8 @@
 \newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
 \newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
 \def\PQ{\begin{pmatrix}\bm{P}\\[-0.2cm]\bm{Q}\end{pmatrix}}
-\def\bt{\begin{pmatrix}\tilde{\bm{b}}_{t+h}\\[-0.2cm]\bm{t}_{t+h}\end{pmatrix}}
-\def\bth{\begin{pmatrix}\tilde{\bm{b}}_{T+h}\\[-0.2cm]\bm{t}_{T+h}\end{pmatrix}}
+\def\bt{\begin{pmatrix}\tilde{\bm{b}}_{t+h}\\[-0.2cm]\tilde{\bm{a}}_{t+h}\end{pmatrix}}
+\def\bth{\begin{pmatrix}\tilde{\bm{b}}_{T+h}\\[-0.2cm]\tilde{\bm{a}}_{T+h}\end{pmatrix}}
 \def\Naive{Na\"{i}ve\ }
 \def\naive{na\"{i}ve\ }
 
@@ -165,22 +165,20 @@
 \end{center}
 \end{frame}
 
-\begin{frame}[noframenumbering]{Project 1: \textit{Motivation and Objective}}
+\begin{frame}[noframenumbering]{Project 1: \textit{Motivation and Contributions}}
 	\begin{itemize}[<+-| alert@+>]
 			\item \textbf{Example:} 
 			\begin{figure}
-%				\begin{overprint}
-%%					\onslide<+|handout:0>
-%					\onslide<+|handout:0>\input{Figs/HTS_Example_1}
-%					\onslide<+|handout:0>\input{Figs/HTS_Example_2-GDP}
-%				\end{overprint}
+
+				\begin{center}
 				\input{Figs/HTS_Example_1}
+				\end{center}
 			\end{figure}
 		\item []
 		
 		\item \textbf{Hierarchical time series:} A collection of multiple time series that has an inherent aggregation structure. 
 		\item Forecasts should add up. We call these \textit{coherent}.
-		\item \textbf{\color{Maroon}Objective:} Defining coherency and reconciliation of point forecasts in terms of geometric concepts.\\
+		\item \textbf{\color{Maroon}Contribution:} Provide definitions for coherency and reconciliation of point forecasts in terms of geometric concepts.\\
 		
 		\end{itemize}
 \end{frame}
@@ -423,7 +421,7 @@ $$\color{Maroon} \bm{y}_t = \bm{Sb}_t.$$
 %-------------------
 
 
-\begin{frame}[noframenumbering]{Project 2: \textit{Motivation and Objectives}}
+\begin{frame}[noframenumbering]{Project 2: \textit{Motivation and Contributions}}
 \begin{itemize}[<+-| alert@+>]
 			\item Extending ``reconciliation" into a probabilistic framework.
 			\item[]
@@ -432,20 +430,20 @@ $$\color{Maroon} \bm{y}_t = \bm{Sb}_t.$$
 				\item[$\star$] Aggregation structure
 				\item[$\star$] Correlation structure
 			\end{itemize}
-			\item Existing literature
+			\item Lack of attention
 				\begin{itemize}[<+-| alert@+>]
-					\item[$\bullet$] \citep{BenTaieb2017}
-					\item[$\bullet$] \citep{Jeon2018}
+					\item[$\bullet$] \citet{BenTaieb2017}
+					\item[$\bullet$] \citet{Jeon2018}
 			\end{itemize}
 			\item[]
 				
-	\item \textbf{\color{Maroon}Objectives:} 
+	\item \textbf{\color{Maroon}Contributions:} 
 	\begin{enumerate}
-		\item Defining coherency and reconciliation for probabilistic forecasts.
+		\item Provide definitions for coherency and reconciliation for probabilistic forecasts.
 		\item[]
-		\item Probabilistic forecast reconciliation in a parametric framework.
+		\item A parametric framework for probabilistic forecast reconciliation.
 		\item[]
-		\item Probabilistic forecast reconciliation in a non-parametric framework.
+		\item A non-parametric framework for probabilistic forecast reconciliation.
 	\end{enumerate}	
 	\item[]
 	
@@ -520,7 +518,7 @@ If we have an unreconciled density the reconciled density can be obtained by lin
 
 
 
-\begin{frame}{Project 2: \textit{Assuming Gaussian distribution}}
+\begin{frame}{Project 2: \textit{Assuming Gaussian distribution}} \hyperlink{GaussianFramework}{\hypertarget{backtoGaussianFramework}{\beamerbutton{A1}}} 
 \begin{itemize}[<+-| alert@+>]
 	\item Let $\mathscr{N}(\hat{\bm{y}}_{T+h}, \bm{W}_{T+h})$ be an incoherent forecast distribution at time $T+h$
 	where $\hat{\bm{y}}_{T+h}$ is the incoherent mean and ${\bm{W}}_{T+h} =E_{\bm{y}_{T+h}}[(\bm{y}_{T+h}-\hat{\bm{y}}_{T+h})(\bm{y}_{T+h}-\hat{\bm{y}}_{T+h})^T|\mathcal{I}_{T}]$ is the incoherent variance 
@@ -529,7 +527,7 @@ If we have an unreconciled density the reconciled density can be obtained by lin
 	$$\color{Maroon}\mathscr{N}(\bm{SG}\bm{\hat{y}}_{T+h},~ \bm{SG}{\bm{W}}_{T+h}\bm{G}'\bm{S}')$$
 	
 	\item ${\bm G}=\left(\bm{S}'\bm{W}_{T+h}^{-1}\bm{S}\right)^{-1}{\bm S'}\bm{W}_{T+h}^{-1}$ minimizes the energy score in the limiting case
-	\hyperlink{ScoringRules}{\hypertarget{backtoScoringRule}{\beamerbutton{A1}}} 
+%	\hyperlink{ScoringRules}{\hypertarget{backtoScoringRule}{\beamerbutton{A1}}} 
 	\item Simulation study evidence for improved predictive performance in reconciled Gaussian forecast distributions.	
 	
 \end{itemize}    
@@ -547,6 +545,39 @@ This follows from the closure property of elliptical distributions under affine 
 \end{frame}
 
 %-----------------------
+
+ \begin{frame}{Project 2: \textit{Evaluation}}
+\begin{itemize}[<+-| alert@+>]
+	\item Scoring rules can be used to evaluate probabilistic forecasts 		\hyperlink{ScoringRules}{\hypertarget{backtoScoringRule}{\beamerbutton{A2}}} 
+	\pause
+	\begin{itemize}
+		\item Log Score
+		\item Energy Score
+		\item Variogram score
+
+	\end{itemize}
+	\item[]
+	\pause
+	\item We may want to compare
+	\begin{itemize}
+		\item Coherent vs Incoherent
+		\item Coherent vs Coherent
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+%---------------------
+\begin{frame}{Project 2: \textit{Evaluation - Coherent vs Incoherent}}
+When using log score
+\begin{theorem}
+Let $f(\bm{y})$ be the true predictive density (on $\mathfrak{s}$) and $LS$ be the (negatively-oriented) log score.  Then there exists an unreconciled density  $\hat{f}(\bm{y})$ on $\mathbb{R}^n$ such that
+\begin{equation*}
+E_{\bm y}\left[LS(\hat{f},\bm{y})\right]<E_{\bm y}\left[LS(f,\bm{y})\right]
+\end{equation*}
+\end{theorem}
+The log score is not proper {\bf in this context}.
+\end{frame}
+
 
 \begin{frame}[noframenumbering]{Today's talk}
 \begin{itemize}[<+-| alert@+>]
@@ -1286,8 +1317,142 @@ where $\bm{e}_t=\bm{y}_t-\hat{\bm{y}}_t$.
 
 %------------------------%
 
+\begin{frame}[noframenumbering]{Appendix: Probabilistic forecasts reconciliation assuming Gaussianity}\hypertarget{GaussianFramework}{\hyperlink{backtoGaussianFramework}{\beamerbutton{A1}}}
+\begin{itemize}[<+-| alert@+>]
+	\item Assuming Gaussianity, let an incoherent forecast distribution at time $T+h$ be given by
+	$$\mathscr{N}(\hat{\bm{y}}_{T+h}, \bm{W}_{T+h}) \overset{d}{\leftrightarrow} \hat{\bm{f}}(.)$$ 
+	where $\hat{\bm{y}}_{T+h}$ is the incoherent mean and ${\bm{W}}_{T+h} =E_{\bm{y}_{T+h}}[(\bm{y}_{T+h}-\hat{\bm{y}}_{T+h})(\bm{y}_{T+h}-\hat{\bm{y}}_{T+h})^T|\mathcal{I}_{T}]$ is incoherent variance 
+	\item[]
+	\item Gaussian densities are closed under affine transformation and marginalization
+	\item From the linear transformation
+	\begin{table}
+		\centering \small
+		
+		$
+		\bm{f_B}(\cdot)
+		= \frac{\exp\left\{-\frac{1}{2}\Big((\bm{S} ~ \vdots~ \bm{R})\bth-\bm{\hat{y}}_{T+h}\Big)' \bm{W_{T+h}}^{-1}\Big((\bm{S} ~ \vdots~ \bm{R})\bth-\bm{\hat{y}}_{T+h}\Big)\right\}}{(2\pi)^{\frac{n}{2}}\Big|\bm{W}_{T+h}\Big|^{\frac{1}{2}}\Big|(\bm{S} ~ \vdots~ \bm{R})^{-1}\Big|}
+		$\\
+		
+		
+	\end{table}
+	
+	%	\begin{table}
+	%		\small
+	%		\centering %\setstretch{1.5}
+	%		\begin{tabular}{l}
+	%			
+	%		\end{tabular}
+	%	\end{table}
+	
+	
+\end{itemize}    
 
-\begin{frame}[noframenumbering]{Project 2: \textit{Probabilistic forecasts evaluation}}\hypertarget{ScoringRules}{\hyperlink{backtoScoringRule}{\beamerbutton{A1}}}
+\end{frame}
+
+%------------------------
+
+
+\begin{frame}[noframenumbering]{Appendix: Probabilistic forecasts reconciliation assuming Gaussianity}
+\begin{itemize}[<+-| alert@+>]
+\item Marginalizing over $\bm{t}_{T+h}$	 \hyperlink{Prob_Gauss}{\beamerbutton{A1}}
+\begin{table}
+	\small
+	$$	
+	\tilde{\bm{f}}_b(\tilde{\bm{b}}_{T+h})=\frac{\exp \Big\{-\frac{1}{2} (\tilde{\bm{b}}_{T+h} - \bm{G}\bm{\hat{y}}_{T+h})' (\bm{G}\bm{{W}_{T+h}}\bm{G}')^{-1}(\tilde{\bm{b}}_{T+h} - \bm{G}\bm{\hat{y}}_{T+h}) \Big\}}{(2\pi)^{\frac{n}{2}}\Big|\bm{G}\bm{{W}_{T+h}}\bm{G}'\Big|^{\frac{1}{2}}}
+	$$	
+\end{table}
+\item This implies, $\tilde{\bm{b}}_{T+h} \sim \mathscr{N}(\bm{G}\bm{\hat{y}}_{T+h}, \bm{G}{\bm{W}}_{T+h}\bm{G}')$ where \color{Purple}$\bm{G} = (\bm{R}'_\bot \bm{S})^{-1}\bm{R}'_\bot$ 
+\item Therefore the reconciled Gaussian distribution of the whole hierarchy is given by 
+$$\color{Maroon}\tilde{\bm{f}}(\tilde{\bm{y}}_{t+h})=\tilde{\bm{f}}_b(\bm{S}\tilde{\bm{b}}_{T+h})\overset{d}{\leftrightarrow}\mathscr{N}(\bm{SP}\bm{\hat{y}}_{T+h},~ \bm{SP}{\bm{W}}_{T+h}\bm{G}'\bm{S}'),$$
+where $\color{Purple}\bm{G} = (\bm{R}'_\bot \bm{S})^{-1}\bm{R}'_\bot$
+\item[]
+\item \textbf{\color{Maroon} Goal}: Solve for $\bm{G}$ by minimizing a \color{red} proper scoring rule
+\end{itemize}    
+
+\end{frame}
+
+%--------------%
+
+
+%------------------------
+
+\begin{frame}[noframenumbering]{Appendix: Probabilistic forecasts reconciliation assuming Gaussianity}
+\begin{itemize}[<+-| alert@+>]
+\item We use the {\color{purple}Energy Score}, which is a proper scoring rule 
+$$ES(\bm{\tilde{Y}_{T+h},y_{T+h}}) = E_{\bm{Y}_{T+h}}||\tilde{\bm{Y}}_{T+h}-\bm{y}_{T+h}||^\alpha - \frac{1}{2}E_{\bm{Y}_{T+h}}||\tilde{\bm{Y}}_{T+h}-\tilde{\bm{Y}}^*_{T+h}||^\alpha, $$ for $\alpha \in (0,2]$,\\
+\item[] where $\tilde{\bm{Y}}_{T+h}$ and $\tilde{\bm{Y}}^*_{T+h}$ are independent random variables from $\mathcal{N}(\bm{SP}\hat{\bm{y}}_{T+h}, \bm{SP}{\bm{W}}_{T+h}\bm{P'S'})$.
+\item[]
+\item There is no closed form expression for $ES(\bm{\tilde{Y}_{T+h},y_{T+h}})$ for $\alpha \in (0,2)$ under the Gaussian predictive distribution
+\item[]
+\item However in the upper limit of $\alpha$, i.e. when $\alpha=2$,
+$$ES(\bm{\tilde{Y}_{T+h},y_{T+h}})=||\bm{SP}\hat{\bm{y}}_{T+h}-\bm{y}_{T+h}||^2$$
+\end{itemize}    
+
+\end{frame}
+
+%------------------------
+
+\begin{frame}[noframenumbering]{Appendix: Probabilistic forecasts reconciliation assuming Gaussianity}
+\begin{itemize}[<+-| alert@+>]
+\item Then our objective function is
+$$ \operatorname*{arg\,min}_{\bm{G}} Tr\{E_{\bm{y}_{T+h}}[(\bm{y}_{T+h}-\bm{SP}\hat{\bm{y}}_{T+h})(\bm{y}_{T+h}-\bm{SP}\hat{\bm{y}}_{T+h})^T|\mathcal{I}_{T}]\},$$ where $\bm{\mathcal{I}}_{T}=\{\bm{y}_1,....,\bm{y}_T\}$
+\item Assuming unbiasedness for coherent forecasts
+\begin{block}{}
+$$ \argmin\limits_{\bm{G}} Tr \{\bm{SG{W}}_{T+h}\bm{G}^T\bm{S}^T\}$$
+$$\text{Subject to} \quad \bm{SPS=S}$$
+\end{block}
+
+\item \citet{Wickramasuriya2018} have shown that a unique solution to this optimization problem attain at
+$$\color{Maroon}  \bm{G} = (\bm{S}^T\bm{\bm{W}}_{T+h}^{-1}\bm{S})^{-1}\bm{S}^T\bm{\bm{W}}_{T+h}^{-1}.$$ 
+\item Thus $\bm{R}'_\bot = \bm{S}'\bm{W}_{T+h}^{-1}$. This is referred to as {\color{red}MinT} solution
+\end{itemize}    
+
+\end{frame}
+
+%------------------------
+\begin{frame}[noframenumbering]{Appendix: Probabilistic forecasts in the Gaussian framework}
+\begin{itemize}[<+-| alert@+>]
+\item[] \color{Purple}$\bm{R}'_\bot = \bm{S}'\bm{W}_{T+h}^{-1}$
+\item The optimally reconciled Gaussian forecast density is given by
+\color{Maroon}$\mathcal{N}[\bm{S}(\bm{R}'_\bot \bm{S})^{-1}\bm{R}'_\bot\hat{\bm{y}}_{T+h}, \bm{S}(\bm{R}'_\bot \bm{S})^{-1}\bm{R}'_\bot{\bm{W}}_{T+h}\bm{R}_\bot(\bm{R}'_\bot \bm{S})^{-1}\bm{S'}]$, 
+
+\item Different estimators of ${\bm{W}}_{T+h}$ yield different $\bm{R}'_\bot$ matrices 
+\item[]
+\item[]
+\begin{center}
+\begin{block}{}
+\begin{table}
+\small
+\centering %\setstretch{1.5}
+\begin{tabular}{lll}
+	\toprule
+	\textbf{Method} & \textbf{Estimate of $\bm{W}_{h}$} & \textbf{Estimate of $\bm{R}'_\bot$}      \\
+	\midrule
+	OLS             &
+	$\bm{I}$  &
+	$\bm{S}'$  \\
+	MinT(Sample)    &
+	$\bm{\hat{W}}_{T+1}^{sam}$ &
+	$\bm{S}'(\bm{\hat{W}}_{T+1}^{sam})^{-1}$ \\
+	MinT(Shrink)    &
+	$\bm{\hat{W}}_{T+1}^{shr} = \tau\text{Diag}(\bm{\hat{W}}_{T+1}^{sam}) + (1-\tau)\bm{\hat{W}}_{T+1}^{sam}$\hyperlink{Shrinkage} {\beamerbutton{A2}} &
+	$\bm{S}'(\bm{\hat{W}}_{T+1}^{shr})^{-1}$ \\
+	MinT(WLS)       &
+	$\bm{\hat{W}}_{T+1}^{wls} = \text{Diag}(\bm{\hat{W}}_{T+1}^{shr})$ &
+	$\bm{S}'(\bm{\hat{W}}_{T+1}^{wls})^{-1}$ \\
+	\bottomrule
+\end{tabular}
+\end{table}
+\end{block}
+\end{center}
+\item[]
+\item Predictive ability of the reconciled Gaussian densities from these methods will be evaluated in a simulation setting
+
+\end{itemize}    
+\end{frame}
+
+
+\begin{frame}[noframenumbering]{Appendix: \textit{Probabilistic forecasts evaluation}}\hypertarget{ScoringRules}{\hyperlink{backtoScoringRule}{\beamerbutton{A2}}}
 %{\beamerreturnbutton{A1}}
 \begin{itemize}
 	\item[]
